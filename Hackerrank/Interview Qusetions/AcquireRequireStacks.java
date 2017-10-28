@@ -1,7 +1,7 @@
 import java.util.*;
 class AcquireRequireStacks{
 
-    public static void lockCheck(ArrayList<String> locks){
+    public static int lockCheck(ArrayList<String> locks){
         
         Stack<Integer> locks_stack = new Stack<Integer>();
 
@@ -14,22 +14,40 @@ class AcquireRequireStacks{
                 if(locks_stack.search(lock_id) == -1){
                     locks_stack.push(lock_id);
                 }else{
-                    System.out.println("Already Acquired lock - Deadlock @ "  + i);
+                    System.out.println("Already Acquired lock - Deadlock @ "  + i+1);
+                    return -1;
                 }
             }else if(lock_type.equals("RELEASE")){
 
-                if(locks_stack.peek() == lock_id){
-                    locks_stack.pop();
+                if(!locks_stack.isEmpty()){
+                    if(locks_stack.peek() == lock_id){
+                        locks_stack.pop();
+                    }else{
+                        System.out.println(locks_stack);
+                        if(locks_stack.search(locks.get(i)) == -1){
+                            System.out.println("Can't release unacquired lock " + lock_id + " @ " + (i+1));
+                            return -2;
+                        }else{
+                            System.out.println("Can't release the current lock. @ " + i+1);
+                            return -1;
+                        }
+                        
+                    }
                 }else{
-                    System.out.println("Can't release the current lock. @ " + i);
+                    System.out.println("Can't release uncquired lock!");
+                    break;
                 }
+                
             }
         }
 
         if(!locks_stack.isEmpty()){
-            System.out.println("Not all locks released!");
+            System.out.println("Following locks were not relased");
+            System.out.println(locks_stack.toString());
+            return -2;
         }else{
             System.out.println("All locks released!");
+            return 0;
         }
     }
 
@@ -37,10 +55,11 @@ class AcquireRequireStacks{
 
         ArrayList<String> locks = new ArrayList<String>();
         
-        locks.add("ACQUIRE 123");
+        locks.add("ACQUIRE 426");
         locks.add("ACQUIRE 321");
-        locks.add("RELEASE 123");
+        locks.add("RELEASE 426");
+        locks.add("RELEASE 54");
 
-        lockCheck(locks);
+        System.out.println(lockCheck(locks));
     }
 }
