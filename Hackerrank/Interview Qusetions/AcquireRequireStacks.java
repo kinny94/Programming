@@ -55,10 +55,10 @@ class AcquireRequireStacks{
 
         ArrayList<String> locks = new ArrayList<String>();
         
-        locks.add("ACQUIRE 426");
-        locks.add("ACQUIRE 321");
-        locks.add("RELEASE 426");
-        locks.add("RELEASE 54");
+        locks.add("ACQUIRE 364");
+        locks.add("ACQUIRE 84");
+        locks.add("RELEASE 84");
+        locks.add("RELEASE 364");
 
         System.out.println(lockCheck(locks));
     }
