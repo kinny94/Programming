@@ -20,5 +20,6 @@ public class DivisiblePairSum {
             a[remainder]++;
         }
         System.out.println(count);
+        System.out.println(count);
     }
 }
