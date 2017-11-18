@@ -1,0 +1,24 @@
+Q1. Algorithm to calculate the substrings of a string.
+Q2. Functionality to design an elevator system.
+Q3. Binary Search Tree.
+Q4. Virtual functions.
+Q5. What is mutex and semaphores?
+Q6. What is a singleton pattern and can you write one that is thread safe?
+Q7. Merge to sorted arrays into second array, both arrays has N elements, but second array size is N*2.
+Q8. Opening closing braces questions.
+Q9. Reaarange the elements of the array so that all zeroes are at the end of the array, while preserving the ordering of the non-zero elements.
+Q10. Show first unique character in a string.
+Q11. Design a system that keeps track of tickers (name and price) per exchange that: gives the top 20 most recently updated tickers.
+Q12. Fid the most popular character in the string.
+Q13. Memory model in C++.
+Q14. What four storage class specifier do we have in C++.
+Q15. What is inline used for in C++.
+Q16. What is the GIL in python.
+Q17. What is a python metaclass.
+Q18. Remove duplicates from an unsorted singly linkedList.
+Q19. C++ templates.
+Q20. Bitwise operations.
+Q21. Static data member and static data functions.
+Q22. Reverse a string.
+Q23. Difference between a stack and a heap.
+Q24. Give an example of inline virtual function.
