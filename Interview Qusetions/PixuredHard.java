@@ -4,7 +4,7 @@ the function returns 1,000,000,000.
 
 I have used recurrsion to compute the indices pair so that i can compute the product and sum.
 
-The worst case time complexity of the program is O(n)
+The worst case time complexity of the program is O(n) - Reccursive
 The worst case space complexity of the program is a little greater than O(1),  because I have used an integer array with at most 2 elements 
 in it. 
 
@@ -100,12 +100,13 @@ class PixuredHard{
 
         PixuredHard obj = new PixuredHard();
         
-        Instant start = Instant.now();
+        // Remove the following comments to also print the run time of the programs
+        //Instant start = Instant.now();
         
         System.out.println(obj.solution(a, b));
         
-        Instant end = Instant.now();
-        System.out.println("Time taken : " + Duration.between(start, end));
+        //Instant end = Instant.now();
+        //System.out.println("Time taken : " + Duration.between(start, end));
         
     }
 }
