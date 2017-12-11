@@ -5,6 +5,9 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
+import java.time.Instant;
+import java.time.Duration;
+import java.lang.Thread;
 
 class PixuredHard{
     
@@ -21,7 +24,7 @@ class PixuredHard{
             if(used[0] >= 0 && used[1] > used[0] && used[1] < c.length){
                 if( c[used[0]]*c[used[1]]  >= c[used[0]] + c[used[1]] ){
                     count++;
-                    System.out.println(Arrays.toString(used));
+                    //System.out.println(Arrays.toString(used));
                 }
             }
 
@@ -36,12 +39,11 @@ class PixuredHard{
 
     public int solution(int[] a, int[] b){
 
-        long startTime = System.currentTimeMillis();
 
         int number_of_elements = a.length;
         double c[] = new double[number_of_elements];
-        int subGroupLength = 2;
-        int used[] = new int[subGroupLength];
+        int pairLength = 2;
+        int used[] = new int[pairLength];
         Arrays.fill(used, -1);
         
         for(int i=0; i<number_of_elements; i++){
@@ -50,9 +52,6 @@ class PixuredHard{
 
         createPairs(c, used, 0, 0);
 
-        long endTime   = System.currentTimeMillis();
-        long totalTime = endTime - startTime;
-        System.out.println(totalTime);
         return count;
     }
 
@@ -77,6 +76,13 @@ class PixuredHard{
         }
 
         PixuredHard obj = new PixuredHard();
+
+        //long startTime = System.nanoTime();
+        
+        Instant start = Instant.now();
         System.out.println(obj.solution(a, b));
+        Instant end = Instant.now();
+        System.out.println(Duration.between(start, end));
+        //System.out.println(totalTime);
     }
 }
