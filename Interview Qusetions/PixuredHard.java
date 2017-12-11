@@ -98,7 +98,7 @@ class PixuredHard{
             b[i] = scan.nextInt();
         }
 
-        PixuredHard obj = new PixuredHard();
+        PixuredHar d obj = new PixuredHard();
         
         // Remove the following comments to also print the run time of the programs
         //Instant start = Instant.now();
