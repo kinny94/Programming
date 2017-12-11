@@ -3,6 +3,8 @@ import java.util.Scanner;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
 class PixuredHard{
     
@@ -19,6 +21,7 @@ class PixuredHard{
             if(used[0] >= 0 && used[1] > used[0] && used[1] < c.length){
                 if( c[used[0]]*c[used[1]]  >= c[used[0]] + c[used[1]] ){
                     count++;
+                    System.out.println(Arrays.toString(used));
                 }
             }
 
@@ -33,6 +36,8 @@ class PixuredHard{
 
     public int solution(int[] a, int[] b){
 
+        long startTime = System.currentTimeMillis();
+
         int number_of_elements = a.length;
         double c[] = new double[number_of_elements];
         int subGroupLength = 2;
@@ -44,6 +49,10 @@ class PixuredHard{
         }
 
         createPairs(c, used, 0, 0);
+
+        long endTime   = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
+        System.out.println(totalTime);
         return count;
     }
 
