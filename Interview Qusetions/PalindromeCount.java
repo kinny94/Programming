@@ -1,7 +1,9 @@
+import java.util.*;
 class PalindromeCount{
 
     public static void main(String args[]){
-        
+        PalindromeCount obj = new PalindromeCount();
+        obj.count_palindromes("abcd");
     }
 
     static ArrayList subStrings(String s){
