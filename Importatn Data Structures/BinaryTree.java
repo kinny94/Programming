@@ -1,3 +1,5 @@
+import com.sun.javafx.stage.FocusUngrabEvent;
+
 class Node{
 
     int key;
@@ -53,8 +55,45 @@ class BinaryTree{
         }
     }
 
+    public void inOrderTraversal(Node focusNode){
+        if(focusNode != null){
+            inOrderTraversal(focusNode.leftChild);
+            System.out.println(focusNode);
+            inOrderTraversal(focusNode.rightChild);
+        }
+    }
+
+    public void preOrderTraversal(Node focusNode){
+        if(focusNode != null){
+            System.out.println(focusNode);
+            preOrderTraversal(focusNode.leftChild);
+            preOrderTraversal(focusNode.rightChild);
+        }
+    }
+
+    public void postOrderTraversal(Node focusNode){
+        if(focusNode != null){
+            postOrderTraversal(focusNode.leftChild);
+            postOrderTraversal(focusNode.rightChild);
+            System.out.println(focusNode);
+        }
+    }
+
     public static void main(String[] args) {
-        
+        BinaryTree tree = new BinaryTree();
+        tree.addNode(50, "Boss");
+        tree.addNode(25, "VP");
+        tree.addNode(15, "Manager");
+        tree.addNode(75, "Sales Manager");
+        tree.addNode(85, "Salesman");
+
+        tree.inOrderTraversal(tree.root);
+        System.out.println();
+
+        tree.preOrderTraversal(tree.root);
+        System.out.println();
+
+        tree.postOrderTraversal(tree.root);
     }
 }
 
