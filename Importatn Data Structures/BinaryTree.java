@@ -173,7 +173,7 @@ class BinaryTree{
         return true;
     }
 
-    public Node getReplacemeNode(Node replacedNode){
+    public Node getReplacementNode(Node replacedNode){
         Node replacementParent = replacedNode;
         Node replacement = replacedNode;
 
@@ -200,6 +200,9 @@ class BinaryTree{
         tree.addNode(15, "Manager");
         tree.addNode(75, "Sales Manager");
         tree.addNode(85, "Salesman");
+        tree.addNode(18, "Someone");
+        tree.addNode(3, "Sometwo");
+        tree.addNode(30, "Somethree");
 
         tree.inOrderTraversal(tree.root);
         System.out.println();
@@ -211,6 +214,14 @@ class BinaryTree{
     
         System.out.println("Search for 25");
         System.out.println(tree.findNode(25));
+
+        System.out.println();
+        System.out.println(tree.remove(15));
+
+        System.out.println();
+        tree.inOrderTraversal(tree.root);
+        System.out.println();
+
     }
 }
 
