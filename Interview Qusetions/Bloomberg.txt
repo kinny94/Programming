@@ -1,3 +1,5 @@
+Bloomberg
+
 Q1. Algorithm to calculate the substrings of a string.
 Q2. Functionality to design an elevator system.
 Q3. Binary Search Tree.
@@ -22,3 +24,14 @@ Q21. Static data member and static data functions.
 Q22. Reverse a string.
 Q23. Difference between a stack and a heap.
 Q24. Give an example of inline virtual function.
+
+Coursera - 
+Q1. Find how many letters a second word is away from being an  anagram of the first word.
+Q2. Min Cut Problem
+Q3. Magical number problem  
+Q4. Range Minimum Query .
+Q5. Parse string from JSON object and parse JSON from string .
+Q6. Find the minimum number, pair the adequate array.
+Q7. Reduce an array to one element by performing moves. Find the minimum cost.
+Q8. Non­dominatable Entities question, Royal Name question where you have to sort by a name + roman numeral.  
+Q9. Given a string, return the next incrementally more sorted string? .
