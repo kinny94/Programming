@@ -79,6 +79,24 @@ class Trees{
         }
     }
 
+    public Node findNode(int key){
+        Node focusNode = root;
+
+        while(focusNode.key != key){
+
+            if(key < focusNode.key){
+                focusNode = focusNode.leftChild;
+            }else{
+                focusNode = focusNode.rightChild;
+            }
+
+            if(focusNode == null){
+                return null;
+            }
+        }
+        return focusNode;
+    }
+
     public static void main(String[] args) {
         Trees tree = new Trees();
         tree.addNode(50, "Boss");
@@ -97,5 +115,9 @@ class Trees{
         System.out.println();
 
         tree.postOrderTraversal(tree.root);
+        System.out.println();
+
+        System.out.println("Search for 25");
+        System.out.println(tree.findNode(25));
     }
 }
