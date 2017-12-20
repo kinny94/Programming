@@ -21,9 +21,9 @@ class PopularCharacter{
             }
         }
 
+        // sorting the hashmap
         Map<String, Integer> result2 = new LinkedHashMap<>();
-        map.entrySet().stream()
-                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+        map.entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                 .forEachOrdered(x -> result2.put(x.getKey(), x.getValue()));
 
         Map.Entry<String, Integer> entry = result2.entrySet().iterator().next();
