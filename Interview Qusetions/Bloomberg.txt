@@ -1,37 +1,43 @@
 Bloomberg
+Q1. finding the peak value in strictly increasing then decreasing sequence.
 
-Q1. Algorithm to calculate the substrings of a string.
-Q2. Functionality to design an elevator system.
-Q3. Binary Search Tree.
-Q4. Virtual functions.
-Q5. What is mutex and semaphores?
-Q6. What is a singleton pattern and can you write one that is thread safe?
-Q7. Merge to sorted arrays into second array, both arrays has N elements, but second array size is N*2.
-Q8. Opening closing braces questions.
-Q9. Reaarange the elements of the array so that all zeroes are at the end of the array, while preserving the ordering of the non-zero elements.
-Q10. Show first unique character in a string.
-Q11. Design a system that keeps track of tickers (name and price) per exchange that: gives the top 20 most recently updated tickers.
-Q12. Fid the most popular character in the string.
-Q13. Memory model in C++.
-Q14. What four storage class specifier do we have in C++.
-Q15. What is inline used for in C++.
-Q16. What is the GIL in python.
-Q17. What is a python metaclass.
-Q18. Remove duplicates from an unsorted singly linkedList.
-Q19. C++ templates.
-Q20. Bitwise operations.
-Q21. Static data member and static data functions.
-Q22. Reverse a string.
-Q23. Difference between a stack and a heap.
-Q24. Give an example of inline virtual function.
+Q2. Given a list of (A,B) pairs, where A is taller than B, and a single pair (X,Y). Provide an algorithm to 
+    determine if X is taller than Y. Report true, false, or inconclusive.
 
-Coursera - 
-Q1. Find how many letters a second word is away from being an  anagram of the first word.
-Q2. Min Cut Problem
-Q3. Magical number problem  
-Q4. Range Minimum Query .
-Q5. Parse string from JSON object and parse JSON from string .
-Q6. Find the minimum number, pair the adequate array.
-Q7. Reduce an array to one element by performing moves. Find the minimum cost.
-Q8. Non­dominatable Entities question, Royal Name question where you have to sort by a name + roman numeral.  
-Q9. Given a string, return the next incrementally more sorted string? .
+Q3. Combine an ArrayList of Min-Heaps so the values in the new combined heap are in ascending order.
+
+Q4. Given an array of integers that consists of two parts, one part descending and one part ascending, sort the array from least to greatest.
+
+Q5. Given a word, rearrange the letters so that they appear by decreasing frequency. 
+    In the case of a tie, sort the letters by increasing alphabetical order.
+
+Q6. Next greater element (Leetcode 496).
+
+Q7. Given an array of numbers. Find out the number with odd frequency of occurrence.
+
+Q8. Find the lowest common ancestor of two nodes in a binary tree.
+
+Q9. Verify whether a binary tree is a BST or not.
+
+Q10. Given an input string and a number n, return all the characters that are repeated atleast
+     n times in the input string as a vector of characters
+
+Q11. Find the kth largest element collectively from 2 sorted integer arrays.
+
+Q12. Find the powerset of a list of numbers.
+
+Q13. design an algorithm to decide if a string str1 contains str2.
+
+Q14. Given a sorted array, with duplicate number maybe, find the target number or numbers. 
+  
+Q15. Given a list of numbers and a number S, find all pairs of numbers in the list that sum to S.
+
+Q16. Implement hashcode function.
+
+Q17. Implement a Stack using a LinkedList.
+
+Q18. Given two nodes of a binary tree, find their nearest parent.
+
+Q19. What is the maximum sum of numbers in an array where you cannot add consecutive numbers?
+
+Q20. Convert Binary Tree to linked list  
