@@ -1,9 +1,20 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 
 class Solution{
 
     public static void main( String args[] ){
+
+        System.out.println(" Enter Commands ");
+        Scanner scan = new Scanner( System.in );
+        String input = scan.nextLine().replaceAll(",", "");
+        String[] commands = input.split(" ");
+        System.out.println( Arrays.toString(commands) );
+        
+        
+        
 
         // HashMap<String, String> hotWeather = new HashMap<>();
         // HashMap<String, String> coldWeather = new HashMap<>();
