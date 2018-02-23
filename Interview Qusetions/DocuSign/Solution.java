@@ -5,6 +5,20 @@ import java.util.Scanner;
 
 class Solution{
 
+    public static boolean hotConditions( HotWeather hotWeatherDetails ){
+    
+        boolean allConditionsSatisfied = false;
+        return true;
+    
+    }
+
+    public static boolean coldConditions( ColdWeather coldWeatherConditions ){
+
+        boolean allConditionsSatisfied = false;
+        return true;
+    
+    }
+
     public static boolean processCommand( String[] commands ){
         
         //System.out.println( Arrays.toString( commands ) );
@@ -12,18 +26,19 @@ class Solution{
         if( !commands[1].equals( "8" )){
             return false;
         }
-
-        HotWeather hotWeather = null;
-        ColdWeather coldWeather = null;
         
         if( commands[0].equals( "HOT" )){
-            Object context = new HotWeather();
-            System.out.println( context.getFootWear() );
+
+            HotWeather hotWeather = new HotWeather();
+            hotConditions( hotWeather );
+
         }else if( commands[0].equals( "COLD" )){
-            Object context = new ColdWeather();
+
+            ColdWeather coldWeather = new ColdWeather();
+            coldConditions( coldWeather );
+
         }
 
-       
         
         for( String current: commands ){
             
