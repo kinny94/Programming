@@ -39,7 +39,7 @@ class ColdWeather{
     }
 
     public String getJacket(){
-        return this.getJacket();
+        return this.jacket;
     }
 
     public String getPants(){
