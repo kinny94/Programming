@@ -5,17 +5,42 @@ import java.util.Scanner;
 
 class Solution{
 
+    public static boolean processCommand( String[] commands ){
+        
+        //System.out.println( Arrays.toString( commands ) );
+        
+        if( !commands[1].equals( "8" )){
+            return false;
+        }
+
+        HotWeather hotWeather = null;
+        ColdWeather coldWeather = null;
+        
+        if( commands[0].equals( "HOT" )){
+            Object context = new HotWeather();
+            System.out.println( context.getFootWear() );
+        }else if( commands[0].equals( "COLD" )){
+            Object context = new ColdWeather();
+        }
+
+       
+        
+        for( String current: commands ){
+            
+        }
+
+        return true;
+    }
+
     public static void main( String args[] ){
 
         System.out.println(" Enter Commands ");
         Scanner scan = new Scanner( System.in );
         String input = scan.nextLine().replaceAll(",", "");
         String[] commands = input.split(" ");
-        System.out.println( Arrays.toString(commands) );
-        
-        
-        
-
+       
+        processCommand( commands );    
+    
         // HashMap<String, String> hotWeather = new HashMap<>();
         // HashMap<String, String> coldWeather = new HashMap<>();
 

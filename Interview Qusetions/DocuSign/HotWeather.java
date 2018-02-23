@@ -1,4 +1,4 @@
-public class ColdWeather{
+class HotWeather{
 
     private String footwear;
     private String headwear;
@@ -9,7 +9,7 @@ public class ColdWeather{
     private String leaveHouse;
     private String pajamas;
 
-    ColdWeather(){
+    HotWeather(){
         
         footwear = "sandals";
         headwear = "sun visor";

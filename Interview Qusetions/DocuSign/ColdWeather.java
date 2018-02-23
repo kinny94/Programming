@@ -1,4 +1,4 @@
-public class ColdWeather{
+class ColdWeather{
 
     private String footwear;
     private String headwear;
