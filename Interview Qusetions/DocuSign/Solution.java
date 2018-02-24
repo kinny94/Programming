@@ -5,49 +5,59 @@ import java.util.Scanner;
 
 class Solution{
 
-    public static boolean hotConditions( HotWeather hotWeatherDetails, String[] commands ){
+    static ArrayList<String> itemsWearing = new ArrayList<>();
 
-        ArrayList<String> itemsWearing = new ArrayList<>();
-    
-        boolean allConditionsSatisfied = false;
+    public static ArrayList hotConditions( HotWeather hotWeatherDetails, String[] commands ){
+
+        //ArrayList<String> itemsWearing = new ArrayList<>();
+
         boolean pantsOn = false;
         boolean shirtOn = false;
+        boolean shoesOn = false;
         
         for( int i=2; i<commands.length; i++){
+            
             switch ( commands[i] ) {
                 case "1" :
 
                     if( itemsWearing.contains( hotWeatherDetails.getFootWear() )){
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     };
 
                     if( pantsOn ){
+                        shoesOn = true;
                         itemsWearing.add( hotWeatherDetails.getFootWear() );
                         break;
                     }else{
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     }
                                
                 case "2":
                     
                     if( itemsWearing.contains( hotWeatherDetails.getHeadwear() )){
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     };
 
                     if( shirtOn ){
                         itemsWearing.add( hotWeatherDetails.getHeadwear() );
                         break;
                     }else{
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     }   
                     
                 case "3":
-                    return false;
+                    itemsWearing.add( "fail" );
+                    return itemsWearing;
 
                 case "4":
                     
                     if( itemsWearing.contains( hotWeatherDetails.getShirt() )){
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     };
 
                     itemsWearing.add( hotWeatherDetails.getShirt() );
@@ -55,12 +65,14 @@ class Solution{
                     break;
                 
                 case "5":
-                    return false;    
+                    itemsWearing.add( "fail" );
+                    return itemsWearing;    
 
                 case "6":
 
                     if( itemsWearing.contains( hotWeatherDetails.getPants() )){
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     };
 
                     itemsWearing.add( hotWeatherDetails.getPants() );
@@ -69,67 +81,80 @@ class Solution{
 
                 case "7":
 
-                    if( itemsWearing.contains( hotWeatherDetails.getLeavingHouse() )){
-                        return false;
+                    if( itemsWearing.contains( hotWeatherDetails.getLeavingHouse()) || !shoesOn ){
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     };
 
                     if( i == commands.length - 1 ){
                         itemsWearing.add( hotWeatherDetails.getLeavingHouse());
                         break;
                     }else{
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     }
                     
+                case "8": 
+                    itemsWearing.add( "fail" );
+                    return itemsWearing;
+                    
                 default:
-                    break;
+                    itemsWearing.add( "fail" );
+                    return itemsWearing;
             }
         }
 
-        return true;
+        return itemsWearing;
     
     }
 
-    public static boolean coldConditions( ColdWeather coldWeatherConditions, String[] commands ){
+    public static ArrayList coldConditions( ColdWeather coldWeatherConditions, String[] commands ){
 
         ArrayList<String> itemsWearing = new ArrayList<>();
 
-        boolean allConditionsSatisfied = false;
         boolean pantsOn = false;
         boolean shirtOn = false;
         boolean socksOn = false;
+        boolean shoesOn = false;
         
         for( int i=2; i<commands.length; i++){
             switch ( commands[i] ) {
                 case "1" :
 
                     if( itemsWearing.contains( coldWeatherConditions.getFootWear() )){
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     };
 
                     if( socksOn ){
+                        shoesOn = true;
                         itemsWearing.add( coldWeatherConditions.getFootWear() );
                         break;
                     }else{
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     }
                                
                 case "2":
 
                     if( itemsWearing.contains( coldWeatherConditions.getHeadwear() )){
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     };
 
                     if( shirtOn ){
                         itemsWearing.add( coldWeatherConditions.getHeadwear() );
                         break;
                     }else{
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     }   
                     
                 case "3":
 
                     if( itemsWearing.contains( coldWeatherConditions.getSocks() )){
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     };
 
                     socksOn = true;
@@ -139,7 +164,8 @@ class Solution{
                 case "4":
 
                     if( itemsWearing.contains( coldWeatherConditions.getShirt() )){
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     };
 
                     shirtOn = true;
@@ -149,21 +175,23 @@ class Solution{
                 case "5":
 
                     if( itemsWearing.contains( coldWeatherConditions.getJacket() )){
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     };
 
                     if( shirtOn ){
                         itemsWearing.add( coldWeatherConditions.getJacket() );
                         break; 
                     }else{
-                        System.out.println( "Wear shirt first ");
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     }   
 
                 case "6":
 
                     if( itemsWearing.contains( coldWeatherConditions.getPants() )){
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     };
 
                     pantsOn = true;
@@ -172,49 +200,61 @@ class Solution{
 
                 case "7":
                     
+                    if( !shoesOn ){
+                        itemsWearing.add( "fail" );
+                        return itemsWearing; 
+                    }
+
                     if( itemsWearing.contains( coldWeatherConditions.getLeavingHouse() )){
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing; 
                     };
 
                     if( i == commands.length - 1 ){
                         itemsWearing.add( coldWeatherConditions.getLeavingHouse());
                         break;
                     }else{
-                        return false;
+                        itemsWearing.add( "fail" );
+                        return itemsWearing;
                     }
 
+                case "8": 
+                    itemsWearing.add( "fail" );
+                    return itemsWearing;
+
                 default:
-                    break;
+                    itemsWearing.add( "fail" );
+                    return itemsWearing;
             }
         }
 
-        return true;
-    
+        return itemsWearing;
     }
 
-    public static boolean processCommand( String[] commands ){
+    public static ArrayList processCommand( String[] commands ){
         
         //System.out.println( Arrays.toString( commands ) );
 
-        boolean validCommands = false;
-        
         if( !commands[1].equals( "8" )){
-            return false;
+            itemsWearing.add("fail");
+            return itemsWearing;
+        }else{
+            itemsWearing.add("Removing PJs");
         }
         
-        if( commands[0].equals( "HOT" )){
+        if( commands[0].toUpperCase().equals( "HOT" )){
 
             HotWeather hotWeather = new HotWeather();
-            validCommands = hotConditions( hotWeather, commands );
+            hotConditions( hotWeather, commands );
 
-        }else if( commands[0].equals( "COLD" )){
+        }else if( commands[0].toUpperCase().equals( "COLD" )){
 
             ColdWeather coldWeather = new ColdWeather();
-            validCommands = coldConditions( coldWeather, commands );
+            coldConditions( coldWeather, commands );
 
         }
 
-        return validCommands;
+        return itemsWearing;
     }
 
     public static void main( String args[] ){
@@ -227,5 +267,4 @@ class Solution{
         System.out.println( processCommand( commands ) );    
     
     } 
-
 }
