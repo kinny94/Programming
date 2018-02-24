@@ -125,6 +125,15 @@ class Solution{
                 // Leave house
                 case "7":
 
+                    // Checking if wearing shoes or not
+                    if( !shoesOn ){
+
+                       // If not wearing shoes, cannot leave house, return "fail"
+                       itemsWearing.add( "fail" );
+                       return itemsWearing; 
+                    
+                    }
+
                     // Checking if already left house of not
                     if( itemsWearing.contains( hotWeatherDetails.getLeavingHouse()) || !shoesOn ){
 
@@ -158,7 +167,7 @@ class Solution{
                     
                 // Anything else
                 default:
-                    
+
                     itemsWearing.add( "fail" );
                     return itemsWearing;
             }
@@ -170,6 +179,7 @@ class Solution{
 
     public static ArrayList coldConditions( ColdWeather coldWeatherConditions, String[] commands ){
 
+        // Creating variable to check pre-requisite conditions
         boolean pantsOn = false;
         boolean shirtOn = false;
         boolean socksOn = false;
@@ -177,115 +187,170 @@ class Solution{
         
         for( int i=2; i<commands.length; i++){
             switch ( commands[i] ) {
+
+                // Putting on footwear
                 case "1" :
                     
+                    // If already wearing footwear, cannot wear again, return "fail" 
                     if( itemsWearing.contains( coldWeatherConditions.getFootWear() )){
                         itemsWearing.add( "fail" );
                         return itemsWearing;
                     };
 
+                    // Checking if socks are on or not. If not, return "fail"
                     if( socksOn ){
+
+                        // If wearing socks, then wear shoes
                         shoesOn = true;
                         itemsWearing.add( coldWeatherConditions.getFootWear() );
                         break;
+
                     }else{
+
+                        // If not wearing any, return "fail"
                         itemsWearing.add( "fail" );
                         return itemsWearing;
+                        
                     }
-                               
+                
+                // Putting on headwear
                 case "2":
 
+                    // If already wearing headwear, then return "fail"
                     if( itemsWearing.contains( coldWeatherConditions.getHeadwear() )){
                         itemsWearing.add( "fail" );
                         return itemsWearing;
                     };
 
+                    // Can only wear headwear if waering shirt 
                     if( shirtOn ){
                         itemsWearing.add( coldWeatherConditions.getHeadwear() );
                         break;
                     }else{
+
+                        // If not wearing shirt, return "fail"
                         itemsWearing.add( "fail" );
                         return itemsWearing;
                     }   
                     
+                // Putting on Socks
                 case "3":
 
+                    // Cannot wear socks, it already wearing, return "fail"
                     if( itemsWearing.contains( coldWeatherConditions.getSocks() )){
+                        
                         itemsWearing.add( "fail" );
                         return itemsWearing;
+                    
                     };
 
+                    // If not wearing socks, wear socks
                     socksOn = true;
                     itemsWearing.add( coldWeatherConditions.getSocks() );
                     break;
 
+                // Putting on Shirt
                 case "4":
 
+                    // Checking if already wearing shirt of not
                     if( itemsWearing.contains( coldWeatherConditions.getShirt() )){
+                        
                         itemsWearing.add( "fail" );
                         return itemsWearing;
                     };
 
+                    // If not wearing shirt, then wear it.
                     shirtOn = true;
                     itemsWearing.add( coldWeatherConditions.getShirt() );
                     break;
                 
+                // Putting on Jacket
                 case "5":
 
+                    // Checking if already wearing jacket or not
                     if( itemsWearing.contains( coldWeatherConditions.getJacket() )){
+
                         itemsWearing.add( "fail" );
                         return itemsWearing;
+
                     };
 
+                    // Can only wear jacket, if wearing shirt, else return "fail"
                     if( shirtOn ){
+                        
                         itemsWearing.add( coldWeatherConditions.getJacket() );
                         break; 
+                    
                     }else{
+
                         itemsWearing.add( "fail" );
                         return itemsWearing;
+                    
                     }   
 
+                // Putting on Pants
                 case "6":
 
-
+                    // Checking if already wearing pants
                     if( itemsWearing.contains( coldWeatherConditions.getPants() )){
+
                         itemsWearing.add( "fail" );
                         return itemsWearing;
+                    
                     };
 
+                    // If not wearing pants, then wear 
                     pantsOn = true;
                     itemsWearing.add( coldWeatherConditions.getPants() );
                     break;
 
+                // Leave house
                 case "7":
                     
+                    // If not wearing shoes, cannot go out. Return "fail"
                     if( !shoesOn ){
+
                         itemsWearing.add( "fail" );
                         return itemsWearing; 
+                    
                     }
 
+                    // If already left house, cannot leave again
                     if( itemsWearing.contains( coldWeatherConditions.getLeavingHouse() )){
+
                         itemsWearing.add( "fail" );
                         return itemsWearing; 
+                    
                     };
 
+                    // Checking if Leaving house is the last thing to do or not.
                     if( i == commands.length - 1 ){
+
+                        // If its the last thing to do, leave house
                         itemsWearing.add( coldWeatherConditions.getLeavingHouse());
                         break;
+
                     }else{
+
+                        // If its not the last thing to do, return "fail"
                         itemsWearing.add( "fail" );
                         return itemsWearing;
+                    
                     }
-
+                
+                // Removing PJS
                 case "8": 
+                    
+                    // Cannot remove pyajamas again, return "fail"
                     itemsWearing.add( "fail" );
                     return itemsWearing;
 
+                // For anything else, wrong input
                 default:
                     itemsWearing.add( "fail" );
                     return itemsWearing;
             }
-        }
+        }   
 
         return itemsWearing;
     }
