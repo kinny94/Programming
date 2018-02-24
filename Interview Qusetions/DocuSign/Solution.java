@@ -5,8 +5,20 @@ import java.util.Scanner;
 
 class Solution{
 
+    // Creting an arraylist to store all the items to wear before leaving the house
     static ArrayList<String> itemsWearing = new ArrayList<>();
 
+    public static void main( String args[] ){
+
+        System.out.println(" Enter Commands ");
+        Scanner scan = new Scanner( System.in );
+        String input = scan.nextLine().replaceAll(",", "");
+        String[] commands = input.split(" ");
+       
+        System.out.println( processCommand( commands ) );    
+    
+    }
+    
     public static ArrayList hotConditions( HotWeather hotWeatherDetails, String[] commands ){
 
         //ArrayList<String> itemsWearing = new ArrayList<>();
@@ -110,8 +122,6 @@ class Solution{
 
     public static ArrayList coldConditions( ColdWeather coldWeatherConditions, String[] commands ){
 
-        ArrayList<String> itemsWearing = new ArrayList<>();
-
         boolean pantsOn = false;
         boolean shirtOn = false;
         boolean socksOn = false;
@@ -120,7 +130,7 @@ class Solution{
         for( int i=2; i<commands.length; i++){
             switch ( commands[i] ) {
                 case "1" :
-
+                    
                     if( itemsWearing.contains( coldWeatherConditions.getFootWear() )){
                         itemsWearing.add( "fail" );
                         return itemsWearing;
@@ -189,6 +199,7 @@ class Solution{
 
                 case "6":
 
+
                     if( itemsWearing.contains( coldWeatherConditions.getPants() )){
                         itemsWearing.add( "fail" );
                         return itemsWearing;
@@ -231,13 +242,14 @@ class Solution{
         return itemsWearing;
     }
 
-    public static ArrayList processCommand( String[] commands ){
+    public static String processCommand( String[] commands ){
         
         //System.out.println( Arrays.toString( commands ) );
 
         if( !commands[1].equals( "8" )){
             itemsWearing.add("fail");
-            return itemsWearing;
+            String finalString = Arrays.toString( itemsWearing.toArray());
+            return finalString.replaceAll("[\\[\\](){}]", "");
         }else{
             itemsWearing.add("Removing PJs");
         }
@@ -254,17 +266,9 @@ class Solution{
 
         }
 
-        return itemsWearing;
+        String finalString = Arrays.toString( itemsWearing.toArray());
+        return finalString.replaceAll("[\\[\\](){}]", "");
     }
 
-    public static void main( String args[] ){
-
-        System.out.println(" Enter Commands ");
-        Scanner scan = new Scanner( System.in );
-        String input = scan.nextLine().replaceAll(",", "");
-        String[] commands = input.split(" ");
-       
-        System.out.println( processCommand( commands ) );    
-    
-    } 
+     
 }
