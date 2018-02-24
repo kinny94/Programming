@@ -10,16 +10,47 @@ class Solution{
 
     public static void main( String args[] ){
 
+        // Running the provided input first.
+        System.out.println();
+        ArrayList<String> inputs = new ArrayList<String>();
+        System.out.println("Running provided input...");
+        System.out.println();
+
+        inputs.add("HOT 8, 6, 4, 2, 1, 7");
+        inputs.add("COLD 8, 6, 3, 4, 2, 5, 1, 7");
+        inputs.add("HOT 8, 6, 6");
+        inputs.add("HOT 8, 6, 3");
+        inputs.add("COLD 8, 6, 3, 4, 2, 5, 7");
+        inputs.add("COLD 6");
+
+        for(String current: inputs){
+            System.out.println( current );
+            String[] commands = current.replaceAll(",", "").split(" ");
+
+            System.out.println( processCommand( commands ) );
+            
+            itemsWearing.clear();
+            System.out.println();
+        }
+
+
         // Getting inputs from the user 
-        System.out.println(" Enter Commands ");
+        System.out.println(" Enter your custom input ");
         Scanner scan = new Scanner( System.in );
 
         // Removing all commas from the input string and creating an array of commands
-        String input = scan.nextLine().replaceAll(",", "");
-        String[] commands = input.split(" ");
+        try{
+            String input = scan.nextLine();
+            String[] commands = input.replaceAll(",", "").split(" ");
        
-        // Calling the process command function
-        System.out.println( processCommand( commands ) );    
+            // Calling the process command function
+            System.out.println( processCommand( commands ) );
+
+        }catch( Exception e){
+            System.out.println("You have entered invalid data");
+        }
+
+        
     
     }
 
