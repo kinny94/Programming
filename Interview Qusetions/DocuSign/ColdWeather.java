@@ -1,3 +1,4 @@
+// Creating a coldWeather class to store details of what to wear when its cold outside with getters.
 class ColdWeather{
 
     private String footwear;
