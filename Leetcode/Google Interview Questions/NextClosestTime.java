@@ -1,5 +1,5 @@
 import java.util.*;
-
+ 
 class Solution {
     public String nextClosestTime(String time) {
         char[] ta = time.toCharArray();
