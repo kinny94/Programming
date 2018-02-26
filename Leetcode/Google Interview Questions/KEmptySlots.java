@@ -26,7 +26,7 @@ class KEmptySlots{
 
     public static void main(String[] args) {
         KEmptySlots obj = new KEmptySlots();
-        int[] a = {3,9,2,8,1,6,10,5,4,7};
+        int[] a = {3, 1, 5, 4, 2 };
         System.out.println(obj.kEmptySlots(a, 1));
     }
 }
