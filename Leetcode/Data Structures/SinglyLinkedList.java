@@ -224,6 +224,7 @@ class LinkedListImplementation{
             pointer = pointer.getLink();
         }
         System.out.print( pointer.getData() );
+        System.out.println();
     }
 
     public void searchElementByPosition( int position ){
