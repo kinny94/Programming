@@ -1,126 +1,86 @@
-import com.sun.corba.se.spi.orbutil.fsm.Action;
+public class Node{
 
-class Node<T extends Comparable<T>>{    //extending the comparable to compara whether its a string or an int
-    
-    private T data;
-    private Node<T> nextNode;
+    Node link = null;
+    int data = 0;
 
-    public Node( T data ){
-        this.data = data;
+    public Node(){
+        link = null;
+        data = 0;
     }
 
-    public T getData(){
+    public Node( int data, Node link ){
+        this.data = data;
+        this.link = link;
+    }
+
+    public Node getLink(){
+        return this.link;
+    }
+
+    public void setLink( Node link ){
+        this.link = link;
+    }
+
+    public int getData(){
         return data;
     }
 
-    public void setData( T data ){
+    public void setLink( int data ){
         this.data = data;
     }
-
-    public Node<T> getNextNode(){
-        return nextNode;
-    }
-
-    public void setNode( Node<T> nextNode ){
-        this.nextNode = nextNode;
-    }
-
-    public String toString(){
-        return this.data.toString();
-    }
 }
 
-public interface List<T>{
+class LinkedList{
 
-    public void insert( T data );
-    public void remove( T data );
-    public void TraverseList();
-    public int size();
-    
-}
+    Node start = null;
+    Node end = null;
+    int size = 0;
 
-public class LinkedList<T extends Comparable<T>> implements List<T>{
+    public LinkedList(){
+        start = null;
+        end = null;
+        size = 0;
+    }
 
-    private Node<T> root;
-    private int sizeOfList = 0;
-
-    public void insert( T data ){
-        
-        ++this.sizeOfList;
-        if( root == null ){
-            
-            this.root = new Node<>( data );
-
+    // Inserting at the start of the list
+    public void insertAtStart( int data ){
+        Node pointer = new Node( data, null );
+        if( start == null ){
+            start = pointer;
+            end = pointer;
         }else{
-
-            insertDataAtBeginning( data );
-
+            pointer.setLink( start );
+            start = pointer;
         }
-
+        size++;
     }
 
-    private void insertDataAtBeginning( T data ){
-
-        Node<T> newNode = new Node<>( data );
-        newNode.setNextNode( root );
-        this.root = newNode;
-
-    }
-
-    private void insertDataAtTheEnd( T data, Node<T> node ){
-        
-        if( node.setNextNode() != null ){
-            insertDataAtTheEnd( data, node.getNextNode());
+    // inserting at the end of the list
+    public void insertAtEnd( int data ){
+        Node pointer = new Node( data, null );
+        if( start == null ){
+            start = pointer;
+            end = pointer; 
         }else{
-            Node<T> newNode = new Node<>( data );
-            node.setNextNode( newNode );
+            end.setLink( pointer );
+            end = pointer;
         }
-
+        size++;
     }
 
-    public void remove( T data ){
-        
-        if( this.root == null ){
-            return;
-        }
+    public void insertAtposition( int data, int index ){
+        Node pointer = new Node( data, null );
+        Node nextNode = start;
+        index = index - 1;
 
-        --this.sizeOfList;
-
-        if( this.root .getData().compareTo( data ) == 0 ){
-            this.root = this.root.getNextNode();
-        }else{
-            remove( data, root, root.getNextNode());
-        }
-    }
-
-    private void remove( T dataRoRemove, Node<T> previousNode, Node<T> actualNode ){
-
-        while( actualNode != null ){
-
-            if( actualNode .getData().compareTo( dataRoRemove ) == 0){
-                previousNode.setNextNode( actualNode.getNextNode());
-                actualNode = null;
+        for( int i=1; i<size; i++){
+            if( i== index ){
+                Node temp2 = nextNode.getLink();
+                nextNode.setLink( pointer );
+                pointer.setLink( temp2 );
+                break;
             }
-            
-            previousNode = actualNode;
-            actualNode = actualNode.getNextNode();
+            nextPointer = nextNode.getLink();
         }
     }
-
-    public int size(){
-        return this.sizeOfList;
-    }
-
-    public void traverseList(){
-
-        if( this.root == null ) return;
-
-        Node<T> actuaNode = this.root;
-        while( actuaNode != null ){
-            System.out.print( actuaNode + " - " );
-            actuaNode = actuaNode.getNextNode();
-        }
-
-    }
-
 }
