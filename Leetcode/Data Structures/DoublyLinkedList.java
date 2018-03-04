@@ -10,7 +10,6 @@ class Node{
     }
 }
 
-
 public class DoublyLinkedList {
 
     int size =0;
