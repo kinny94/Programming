@@ -1,5 +1,3 @@
-const fs = require( "fs" );
-
 const calculateTime = ( startTime, endTime ) => {
     let time1 = startTime.split(":");
     let time2 = endTime.split(":");
@@ -17,6 +15,7 @@ const calculateSpeed = ( startTime, endTime, miles ) => {
 }
 
 const sortingArrayOfObjects = ( object ) => {
+    
     var sortable = [];
     for(var key in object )
         if( object.hasOwnProperty(key))
@@ -46,7 +45,6 @@ const getAllTripsData = ( inputFileData ) => {
             }
         }
     }
-    
     return driversData;
 }
 
@@ -60,39 +58,10 @@ const printResults = ( arrayOfData ) => {
     }
 } 
 
-let data;
-if( process.argv.slice( 2 ).length === 0 ){
-    data = fs.readFileSync( 'input.txt', 'utf-8' );
-}else{
-    data = fs.readFileSync( process.argv[2], 'utf-8' );
-};
-
-let allLines = data.split('\n');
-let consolidatedDriverData = getAllTripsData( allLines );
-
-for( key in consolidatedDriverData ){
-
-    let finalStats = [];
-    let array = consolidatedDriverData[key];
-    
-    if( array.length === 0 ){
-        consolidatedDriverData[key] = [ 0, 0 ];
-        break;
-    }else{
-        let totalTime = 0;
-        let totalMiles = 0;
-        for( let i=0; i<array.length; i++ ){
-            totalTime += array[i][0];
-            totalMiles += parseFloat( array[i][1] );
-        }
-
-        let avgSpeed = totalMiles / totalTime;
-        finalStats.push( Math.round( totalMiles ));
-        finalStats.push( Math.round( avgSpeed ));
-        consolidatedDriverData[key] = finalStats;
-    }
+module.exports = {
+    calculateSpeed,
+    calculateTime,
+    printResults,
+    sortingArrayOfObjects,
+    getAllTripsData
 }
-    
-var sortedArray = sortingArrayOfObjects( consolidatedDriverData );
-printResults( sortedArray );
-console.log()
