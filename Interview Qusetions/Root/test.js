@@ -75,7 +75,7 @@ describe( 'Get All Trips Data Function ', () => {
         }
     });
 
-    it( 'should not contain any trip where the average speed is less than 5 or greater than 100 ', () => {
+    it( ' should not contain any trip where the average speed is less than 5 or greater than 100 ', () => {
         for( key in result ){
             let value = result[ key ];
 
