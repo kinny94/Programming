@@ -88,3 +88,18 @@ describe( 'Get All Trips Data Function ', () => {
         }
     });
 });
+
+describe( ' Sorting An Array Of Object Function ', () => {
+    
+    let obj = {
+        'Sam': [ 24, 42 ],
+        'Rick': [54, 30 ],
+        'Martin': [ 42, 35 ]
+    }
+    let result = utils.sortingArrayOfObjects( obj );
+    it( 'should make sure that the array is sorted according to the miles travelled ', () => {
+        for( let i=0; i<result.length - 1 ; i++ ){
+            expect( result[i][1][0] ).to.be.greaterThan( result[i+1][1][0] );
+        }
+    })
+});
