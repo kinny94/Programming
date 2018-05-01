@@ -2,13 +2,13 @@
 // difference between URL and UNC
 // Fibonaaci series
 // SDLC
-// FIzzbuzz
-// Four tenets of Object oriented Programming
+// FIzzbuzz - done
+// Four tenets of Object oriented Programming - done
 // Difference between a thread and a Process
 // blackbox testing
 // difference betqween a stack and a queue
-// Words counts and print the most occuring words
-// create a function to figure if a string is a palindrome
+// Words counts and print the most occuring words - done
+// create a function to figure if a string is a palindrome - 
 // create a function that return the first index of a character in a string
 // create a function that return the sum of an integer array
 // Given a string, return a list of the most common characters in the string.
