@@ -1,0 +1,35 @@
+Questions on glassdoor
+Permutations of a set of intergers.
+Find a complete trip based on the given pool of pairs of destinations.  
+Find if a word in a palindromic anagram
+find if a string is balanced number of brackets 
+Implement auto-complete code  
+topological sorting 
+Valid Sudoku  
+Given a graph, how would you determine if there are cycles in it  
+Big question - 
+ * -----------
+ *
+ * A significant part of Credit Karma's platform is identifying well-matched
+ * financial offers for our users based on many factors including a user's
+ * current credit score. For this test you'll be asked to develop a
+ * rudimentary system that does exactly that.
+ *
+ * The goal of the system is to serve offers to users. You'll develop this
+ * in a stepwise manner. Whenever you're asked to serve an offer to the user
+ * the implementation should result in the offers being printed to the console.
+ *
+ * Step 1: Return all of the offers from each service to the user.
+ *
+ * Step 2: Only return offers from each service where the user's credit score is between (inclusive) the offers minimum and maximum score.
+ *
+ * Step 3: Serve all relevant offers from step 2 and only the auto loan offers to the user if the following conditions are true:
+ * (a) The user's credit score is within the offer's range
+ * (b) The user's current outstanding loan is less than or equal to the auto loan offer's high limit.  
+
+Show me how you would design a URL shortener
+come up with different ways to do a shuffle algorithm
+Check for two accounts are equal or not. Implements the equals and hashcode method 
+write a function that takes in N and prints dot tree of N height.  
+function that prints out prime numbers  
+Multithreading, race condition, collections API 
