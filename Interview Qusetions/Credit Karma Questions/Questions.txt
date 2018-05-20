@@ -1,5 +1,5 @@
 Questions on glassdoor
-Permutations of a set of intergers.
+Permutations of a set of intergers. // done
 Find a complete trip based on the given pool of pairs of destinations.  
 Find if a word in a palindromic anagram
 find if a string is balanced number of brackets 
