@@ -1,0 +1,131 @@
+************************************* F5-Networks *********************************
+Q. HTTP and SSL protocols.
+Ans:The hypertext transfer protocol is an application protocol for distributed, collaborative and hypermedia information systems.
+    HTTP is the protocol to transfer or exchange hypertext. The hypertext is the structured text that uses hyperlinks. HTTP 
+    functions as a request-response protocol in the client-server computing model. the client submits an HTTP request to the server,
+    to which the server provides resources such as HTML. HTTP is an application layes protocol designed with a framework of the
+    Internet protocol suite. 
+
+    SSL-Secure Sockets Layers are cryptographic perotocols that provide communication security over a computer network. 
+        applications - Web browsing, email, instant messaging. This link ensures that all data passed between the web server and 
+        browsers remain private and integral. After activating your web server we get two cryptographic keys - a private key and
+        a public key. The Public Key does not need to be secret and is placed into a Certificate Signing Request (CSR) - a data
+        file also containing your details. You should then submit the CSR. During the SSL Certificate application process, the 
+        Certification Authority will validate your details and issue an SSL Certificate containing your details and allowing you 
+        to use SSL. Your web server will match your issued SSL Certificate to your Private Key. Your web server will then be able 
+        to establish an encrypted link between the website and your customer's web browser.
+
+Q. Explain what happens in details and behind the scene when you type in your browser google.com.
+Ans: 
+
+Q. Command line to check routing table in linux
+Ans.The routing table is used to show you where various different network subnets will be routed to
+    Using ip command - `ip route` or `ip r`.
+
+Q. linux command to check disc space.
+Ans:df - shows the amount of disc space used and available on linux file systems.
+    du -Display the amount of disk space used by the specified files and for each subdirectory.
+
+Q. linux command to list running processes.
+Ans: ps -A or top
+
+Q. Example of linux file system.
+Ans:
+
+Q. difference between /var/log/syslog and /var/log/messages.
+Ans. Syslog is a standard logging facility. It collects messages of various programs and services including the kernel, stores them 
+     mdepending on the setup, in a buncl of log files. Logs everything 
+
+    /var/log/messages instead aims at storing valuable, non-debug and non-critical messages. This log should be considered 
+    the "general system activity" log.
+
+Q. What is hhtp header ?
+Ans. Http header allows the client and the server to pass additional information with the request or the response. They define 
+    operating paramters of an HTTP   transaction. The header fields are transmitted after the request or response line. A header
+    consists of its case -sensitive name followed by a colon: then by its value. The standard imposes no limits to the size of 
+    each header field name or value, or to the number field. However, most servers put size size restrictions for security reasons.
+
+    Standard request field = Authorization, content-type, X-Csrf-Token, cookie
+    Standard response field =  Access-Control-Allow-Origin, locartion, content-type
+
+Q. What is ping ?
+Ans:ping is a basic internet program that allows a user to verify that a particular IP address exists and can except request.
+    ping works by sending an internet control message protocol (ICMP) exho request to a specified interface or network and 
+    waiting for a reply. It is used measure latency, or the time it takes to send and receive a packet of data between two devices
+    on a network. 
+
+Q. what is the difference between ping and traceroute ?
+Ans: Traceroute is a computer network diagnostic tool for displaying the route and measuring transit delays of packets across a
+     network. It also shows the number of hops required to reaxcxh to that point.
+
+     The main difference between Ping and Traceroute is that Ping is a quick and easy utility to tell if the specified server 
+     is reachable and how long will it take to send and receive data from the server whereas Traceroute finds the exact route 
+     taken to reach the server and time taken by each step (hop).
+
+Q. Define tcp connection ?
+Ans: TCP is a standard that defines how to establish and maintain a network conversation via which application programs can 
+    exchange data. TCP wotks with the IP, which defines how computes sends packets of data to each other,TCP is a
+    connection-oriented protocol, which means a connection is established and maintained until the application programs at 
+    each end have finished exchanging messages.
+
+Q. 4 ways close?
+Ans. 
+
+Q. 6 flags in tcp header ?
+Ans: SYN: Synchronization flag is used to setup a 3-way handshake between two hosts.
+     ACK: Acknowledgement.
+     FIN: Finished, there is no more data from the sender.
+     URG: notify received to process urgent packets before regular packets.
+     PSH: tells the receiver to process these packets as they are received instead of buffering,
+     RST: reset.
+     CWR: The CWR flag, which stands for Congestion Window Reduced, is used by the sending host 
+          to indicate it received a packet with the ECE flag set.
+
+Q. Define submask ?
+Ans: A subnet mask is a 32 bit number that masks an IP address and divides the IP address into network address and host address.
+
+Q. Location of messages in linux ?
+
+Q. Define NTP ?
+Ans - Network time protocol is used to syncrhonize computer clock times in a network.
+
+Q. Define INode ?
+Ans: An inode is a data-structure on a file system on linux that stores al the information about a file excepts its name and 
+    its actual data.
+
+Q. Which one is better? HashTable or Binary balanced trees? List scenarios when you will prefer HashTable.
+Ans: Hasn table supports following operations 1. Search, insert, delete - O(1), in BST its O(Logn)..
+    Advantages of BST
+    Can get all keys in sorted order just by doing inorder traversal.
+    Doing order statistics, finding closest lower and greater elements doing range queries are easy to do with BSTs.
+    time is always O(Logn), can change in Hash table, expecially in resizing.
+
+Q. Difference between Router, Hub and a switch ?
+Ans: Router: It forwards data packets along networks. Routers are located at the gateways. Connected to atleast two networks
+    Switch: swithc is a device that filters and forwards packets between LAN segments. operated in data link later or network layer.
+    Hub: A hub is a common connection point for devices in a network. Hubs connect segments of a LAN. It contains multiple ports so 
+    when a packet arrives at one port, it is copied to the other ports so that all segments of the LAN can see all packets.
+
+Q. Explain OSI model ?
+Q. Explain TCP 3-way handshake ?
+Ans: 
+    A three-way handshake is a method used in a TCP/IP network to create a connection between a local host/client and server. 
+    It is a three-step method that requires both the client and server to exchange SYN and ACK (acknowledgment) packets 
+    before actual data communication begins.
+    
+Q. IPv4 and IPv6 addresses ?
+Ans:  IPv4 stands for Internet Protocol version 4. It is the underlying technology that makes it possible for us to connect 
+    our devices to the web. Whenever a device access the Internet (whether it's a PC, Mac, smartphone or other device), 
+    it is assigned a unique, numerical IP address such as 99.48.227.227. To send data from one computer to another through 
+    the web, a data packet must be transferred across the network containing the IP addresses of both devices.
+
+     IPv4 stands for Internet Protocol version 4. It is the underlying technology that makes it possible for us to connect 
+     our devices to the web. Whenever a device access the Internet (whether it's a PC, Mac, smartphone or other device), 
+     it is assigned a unique, numerical IP address such as 99.48.227.227. To send data from one computer to another through 
+     the web, a data packet must be transferred across the network containing the IP addresses of both devices.
+
+Q linux Command - ls, grep, find ?
+Ans:searches for matching a regular expression against text in a file, multiple files or a stream of input. It searches 
+    for the pattern of text that you specify on the command line and prints output for you.
+
+Q. Size of a TCP window?
