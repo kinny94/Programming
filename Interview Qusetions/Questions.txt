@@ -338,3 +338,28 @@ Q. How does finally block differ from finalize() method ?
 Ans. A finally block will be executed whether or not an exception is thrown and is used to release those resources held by 
      the application. Finalize is a protected method of the Object class, which is called by the Java Virtual Machine (JVM)
      just before an object is garbage collected.
+    
+Q. What is an inline function?
+Ans.An inline function is the techqnique used by the compilers to insert complete body of the function wherever that function
+    is used in the program source code.
+
+Q. What is a virtual function ?
+Ans.A virtual function is a member function of a class, and its functionality can be overridden in its derived class. This 
+    function can be implemented using a keyword called virtual, and it can be given during function decalaration.
+
+Q. What is a friend function ?
+Ans.A friend function the a friend of  a class that is allowed access to public, privarte protected data in the same class.
+    If the function is defined outside the class, the class cannot access such information.
+
+Q. What is a super keyword ?
+Ans. Super keyword is used to invoke the overridden method which overrides one of its superclass methods. This keyword allow
+    access to the overridden methods and also access to the hidden members of the super class.
+
+Q. What is the difference between new and override?
+Ans. The new keyword instructs the compiler to use the new implementation instead of the base class function.
+
+Q. Difference between a structure and a class ?
+Ans. Structure default access type is public, but class access type is private. A structure is used for grouping data whereas
+    class can be used for grouping data and methods. Structures are exclusively used for data, and it doesn't require strict
+    validation, but classes are used to encapsulates and ingerit data which requires strict validation.
+
