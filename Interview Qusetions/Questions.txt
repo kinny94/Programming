@@ -129,3 +129,34 @@ Ans:searches for matching a regular expression against text in a file, multiple 
     for the pattern of text that you specify on the command line and prints output for you.
 
 Q. Size of a TCP window?
+
+/*****************************************  Houghton Mifflin Harcourt ********************************/
+Advantage of object oriented programming
+    * Modular development of code, which leads easy maintenace and modification.
+    * Reusability of code
+    * Improved reliability and flexibility of code.
+    * Increased understanding of code.
+
+Characteristic features of Object oriented programming.
+    * Encapsulation - Encapsulation provides object with the ability to hide their internal characteristics and behaviour. Each 
+      object provides a number of methods, which can be accessed by other objects and change its internal data. Advantages of
+      using encapsulation are listed below.
+        - The internal state of every object is protected by hiding its attributes.
+        - It increases usability and maintaince of code, because the behaviour of an object can be independently changed or
+          extended.
+        - It improves modularity by preventing objects to interact with each other, in an undesired way.
+
+    * Polymorphism - It is the ability of the data to be represented in more than one form. A polymorphic type is a type whose
+        operations can also be applied to values of some other types.
+
+    * Inheritance - Inheritance provides an object with the ability to acquire the fields and methods of another class, called
+        base class. Inheritance provides re-usability of code and can be used to add additional features to an existing class.
+    
+    * Abstractions - Abstraction is the process of showing only necessary details to the putside world.
+
+Differene between Abstractions and Encapsulation
+    Abstraction and encapsulation are complementary concepts. On one hand, abstraction focuses on the behaviour of an object. On
+    the other hand, encapsulation focuses on the implementation of an object's behaviour. Encapsulation is usually acheived by 
+    hiding information about the internal state of an object thus, can be seen as a strategy in order to provide abstraction.
+
+
