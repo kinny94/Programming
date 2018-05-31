@@ -160,3 +160,143 @@ Differene between Abstractions and Encapsulation
     hiding information about the internal state of an object thus, can be seen as a strategy in order to provide abstraction.
 
 
+Q. What is JVM>  Why is Java called the “Platform Independent Programming Language” ?
+Ans. A JVM is a virtual machine which is capable of executing the java bytecode. Java was desgined to allow applications programs
+    to be built that could be run on any platform, without having to be rewritten or recompiled by the programmer for each seperate
+    platforms.
+
+Q. Difference between JDK and JRE?
+Ans. JRE is basically JVM where the java programs are being executed. 
+     IDK is a fully featured SDK for java, including the JRE.
+
+Q. What does the “static” keyword mean ? Can you override private or static method in Java ?
+Ans. The static keyword denotes that a member variable or method can be accessed, without requiring an instantiation of the 
+     class to which it belongs. A user cannot override static methods in java, because method overriding in based on dynamic 
+     binding at runtime and static methods are statically binded at compile time.
+    
+Q. Can you access non static variable in static context ?
+Ans. No, because those variables are not created yet and they are not associated with any instance.
+
+Q. What is Function Overriding and Overloading in Java ?
+Ans. Method overloading in Java occurs when two or more methods in the same class have the exact same name, but different 
+     parameters. On the other hand, method overriding is defined as the case when a child class redefines the same method 
+     as a parent class. Overridden methods must have the same name, argument list, and return type. The overriding method 
+     may not limit the access of the method it overrides.
+
+Q. What is a Constructor, Constructor Overloading in Java and Copy-Constructor ?
+Ans. A constructor is invoked whenever the new instance of the class is created. Java does support copy constructors like 
+     C++, but the difference lies in the fact that Java doesn’t create a default copy constructor if you don’t write your own.
+
+Q.  Does Java support multiple inheritance ?
+Ans. No, Java does not support multiple inheritance. Each class is able to extend only on one class, but is able to implement
+     more than one interfaces.
+
+Q. What is the difference between an Interface and an Abstract class ?
+Ans. All methods in an interface are implicitly abstract. On the other hand, an abstract class may contain both abstract 
+     and non-abstract methods.
+     A class may implement a number of Interfaces, but can extend only one abstract class.
+     In order for a class to implement an interface, it must implement all its declared methods. However, a class may not 
+     implement all declared methods of an abstract class. Though, in this case, the sub-class must also be declared as abstract.
+     Abstract classes can implement interfaces without even providing the implementation of interface methods.
+     Variables declared in a Java interface is by default final. An abstract class may contain non-final variables.
+     Members of a Java interface are public by default. A member of an abstract class can either be private, protected or public.
+
+Q. What are pass by reference and pass by value ?
+Ans. When an object is passed by value, this means that a copy of the object is passed. Thus, even if changes are made to that object, 
+     it doesn’t affect the original value. When an object is passed by reference, this means that the actual object is not passed, 
+     rather a reference of the object is passed. Thus, any changes made by the external method, are also reflected in all places.
+
+Q. What is the difference between a process and a threads ?
+Ans. A process is an execution of a program, while a Thread is a single execution sequence within a process. 
+     A process can contain multiple threads. A Thread is sometimes called a lightweight process.
+
+Q. Explain different ways of creating a thread.Which one would you prefer and why ?
+Ans. Three ways:-
+      A class may extend the thread class.
+      A class may implement the runnable interface.
+      An application can use the Executor framework, in order to create a thread pool.
+      The Runnable interface is preferred, as it does not require an object to inherit the Thread class.
+
+Q. Explain the available thread states in a high-level.
+Ans. Runnable: A thread becomes ready to run, but does not necessarily start running immediately.
+     Running: The processor is actively executing the thread code.
+     Waiting: A thread is in a blocked state waiting for some external processing to finish.
+     Sleeping: The thread is forced to sleep.
+     Blocked on I/O: Waiting for an I/O operation to complete.
+     Blocked on Synchronization: Waiting to acquire a lock.
+     Dead: The thread has finished its execution.
+
+Q.  What is the difference between a synchronized method and a synchronized block ?
+Ans.In Java programming, each object has a lock. A thread can acquire the lock for an object by using the synchronized keyword. 
+    The synchronized keyword can be applied in a method level (coarse grained lock) or block level of code (fine grained lock) 
+
+Q.   How do you ensure that N threads can access N resources without deadlock ?
+Ans. A very simple way to avoid deadlock while using N threads is to impose an ordering on the locks and force each thread
+     to follow that ordering. Thus, if all threads lock and unlock the mutexes in the same order, no deadlocks can arise.
+
+Q.  What are the basic interfaces of Java Collections Framework ?
+Ans.Collection, which represents a group of objects known as its elements.
+    Set, which is a collection that cannot contain duplicate elements.
+    List, which is an ordered collection and can contain duplicate elements.
+    Map, which is an object that maps keys to values and cannot contain duplicate keys.
+
+Q. What is an Iterator ?
+Ans. The Iterator interface provides a number of methods that are able to iterate over any Collection. Each Java 
+     Collection contains the Iterator method that returns an Iterator instance. Iterators are capable of removing 
+     elements from the underlying collection during the iteration.
+
+Q. What differences exist between Iterator and ListIterator ?
+Ans. An Iterator can be used to traverse the Set and List collections, while the ListIterator can be used to iterate only over List .
+     The Iterator can traverse a collection only in forward direction, while the ListIterator can traverse a List in both directions.
+     The ListIterator implements the Iterator interface and contains extra functionality, such as adding an element, replacing an 
+     element, getting the index position for previous and next elements, etc.
+
+Q. How HashMap works in Java ?
+Ans. A HashMap in Java stores key-value pairs. The HashMap requires a hash function and uses hashCode and equals methods, 
+     in order to put and retrieve elements to and from the collection respectively. When the put method is invoked, the 
+     HashMap calculates the hash value of the key and stores the pair in the appropriate index inside the collection. 
+     If the key exists, its value is updated with the new value. Some important characteristics of a HashMap are its capacity, 
+     its load factor and the threshold resizing.
+
+Q. What is the importance of hashCode() and equals() methods ?
+Ans. A HashMap in Java uses the hashCode and equals methods to determine the index of the key-value pair. These methods are 
+     also used when we request the value of a specific key. If these methods are not implemented correctly, two different 
+     keys might produce the same hash value and thus, will be considered as equal by the collection. Furthermore, these methods 
+     are also used to detect duplicates. Thus, the implementation of both methods is crucial to the accuracy and correctness of 
+     the HashMap.
+
+Q. What differences exist between HashMap and Hashtable ?
+Ans. A HashMap allows the existence of null keys and values, while a Hashtable doesn’t allow neither null keys, nor null values.
+     A Hashtable is synchronized, while a HashMap is not. Thus, HashMap is preferred in single-threaded environments, 
+     while a Hashtable is suitable for multi-threaded environments.
+     A HashMap provides its set of keys and a Java application can iterate over them. Thus, a HashMap is fail-fast. 
+     On the other hand, a Hashtable provides an Enumeration of its keys.
+     The Hashtable class is considered to be a legacy class.
+
+Q.  What is Comparable and Comparator interface ?
+Ans. Java provides the Comparable interface, which contains only one method, called compareTo). This method compares two objects,
+     in order to impose an order between them. Specifically, it returns a negative integer, zero, or a positive integer to indicate 
+     that the input object is less than, equal or greater than the existing object. Java provides the Comparator interface, which 
+     contains two methods, called compare) and equals). The first method compares its two input arguments and imposes an order 
+     between them. It returns a negative integer, zero, or a positive integer to indicate that the first argument is less than, 
+     equal to, or greater than the second. The second method requires an object as a parameter and aims to decide whether the 
+     input object is equal to the comparator. The method returns true, only if the specified object is also a comparator and it 
+     imposes the same ordering as the comparator.
+
+Q.  What is Java Priority Queue ?
+Ans. The PriorityQueue is an unbounded queue, based on a priority heap and its elements are ordered in their natural order. At 
+     the time of its creation, we can provide a Comparator that is responsible for ordering the elements of the PriorityQueue. 
+     A PriorityQueue doesn’t allow null values, those objects that doesn’t provide natural ordering, or those objects that 
+     don’t have any comparator associated with them. Finally, the Java PriorityQueue is not thread-safe and it requires 
+     O(log(n)) time for its enqueing and dequeing operations.
+
+Q. What’s the difference between Enumeration and Iterator interfaces ?
+Ans. Enumeration is twice as fast as compared to an Iterator and uses very less memory. However, the Iterator is much safer 
+     compared to Enumeration, because other threads are not able to modify the collection object that is currently traversed by 
+     the iterator. Also, Iterators allow the caller to remove elements from the underlying collection, something which is not 
+     possible with Enumeration.
+
+Q.  What is the difference between HashSet and TreeSet ?
+Ans. The HashSet is Implemented using a hash table and thus, its elements are not ordered. The add, remove, and contains methods 
+    of a HashSet have constant time complexity O(1). On the other hand, a TreeSet is implemented using a tree structure. The 
+    elements in a TreeSet are sorted, and thus, the add, remove, and contains methods have time complexity of O(logn).
