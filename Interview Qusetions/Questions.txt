@@ -300,3 +300,41 @@ Q.  What is the difference between HashSet and TreeSet ?
 Ans. The HashSet is Implemented using a hash table and thus, its elements are not ordered. The add, remove, and contains methods 
     of a HashSet have constant time complexity O(1). On the other hand, a TreeSet is implemented using a tree structure. The 
     elements in a TreeSet are sorted, and thus, the add, remove, and contains methods have time complexity of O(logn).
+
+Q. When is the finalize() called ? What is the purpose of finalization ?
+Ans. The finalize method is called by the garbage collector, just before releasing the object’s memory. It is normally advised 
+     to release resources held by the object inside the finalize method.
+
+Q. What is structure of Java Heap ? What is Perm Gen space in Heap ?
+Ans. The JVM has a heap that is the runtime data area from which memory for all class instances and arrays is allocated. It 
+     is created at the JVM start-up. Heap memory for objects is reclaimed by an automatic memory management system which is 
+     known as a garbage collector. Heap memory consists of live and dead objects. Live objects are accessible by the application
+     and will not be a subject of garbage collection. Dead objects are those which will never be accessible by the application, 
+     but have not been collected by the garbage collector yet. Such objects occupy the heap memory space until they are eventually 
+     collected by the garbage collector.
+
+Q. What are the two types of Exceptions in Java ? Which are the differences between them ?
+Ans. Java has two types of exceptions: checked exceptions and unchecked exceptions. Unchecked exceptions do not need to be declared 
+     in a method or a constructor’s throws clause, if they can be thrown by the execution of the method or the constructor, 
+     and propagate outside the method or constructor boundary. On the other hand, checked exceptions must be declared in a method 
+     or a constructor’s throws clause. See here for tips on Java exception handling.
+
+Q. What is the difference between Exception and Error in java ?
+Ans.Exception and Error classes are both subclasses of the Throwable class. The Exception class is used for exceptional conditions 
+    that a user’s program should catch. The Error class defines exceptions that are not excepted to be caught by the user program.
+
+Q.  What is the difference between throw and throws ?
+Ans. The throw keyword is used to explicitly raise a exception within the program. On the contrary, the throws clause is used to 
+     indicate those exceptions that are not handled by a method. Each method must explicitly specify which exceptions does not
+     handle, so the callers of that method can guard against possible exceptions. Finally, multiple exceptions are separated 
+     by a comma.
+
+Q. What is the importance of finally block in exception handling ?
+Ans. A finally block will always be executed, whether or not an exception is actually thrown. Even in the case where the 
+     catch statement is missing and an exception is thrown, the finally block will still be executed. Last thing to mention 
+     is that the finally block is used to release resources like I/O buffers, database connections, etc.
+
+Q. How does finally block differ from finalize() method ?
+Ans. A finally block will be executed whether or not an exception is thrown and is used to release those resources held by 
+     the application. Finalize is a protected method of the Object class, which is called by the Java Virtual Machine (JVM)
+     just before an object is garbage collected.
