@@ -8,6 +8,7 @@ class Node{
         this.data = data;
     }
 }
+//push
 
 class IsBST{
 
