@@ -199,6 +199,7 @@ class BinaryTree{
         tree.addNode(15, "Manager");
         tree.addNode(75, "Sales Manager");
         tree.addNode(85, "Salesman");
+        
         tree.addNode(18, "Someone");
         tree.addNode(3, "Sometwo");
         tree.addNode(30, "Somethree");
