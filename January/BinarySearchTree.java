@@ -71,6 +71,107 @@ class BinarySearchTree {
         }
     }
 
+    public Node findNode(int key) {
+        Node currentNode = root;
+
+        while (currentNode.key != key) {
+            if (key < currentNode.key) {
+                currentNode = currentNode.leftchild;
+            } else {
+                currentNode = currentNode.rightChild;
+            }
+
+            if (currentNode == null) {
+                return null;
+            }
+        }
+
+        return currentNode;
+    }
+
+    public boolean deleteNode(int key) {
+        Node currentNode = root;
+        Node parentNode = root;
+
+        boolean isLeftChild = true;
+        
+        while (currentNode.key != key) {
+            parentNode = currentNode;
+            if (key < currentNode.key) {
+                isLeftChild = true;
+                currentNode = currentNode.leftchild;
+            } else {
+                isLeftChild = false;
+                currentNode = currentNode.rightChild;
+            }
+
+            if (currentNode == null) {
+                return false;
+            }
+        }
+
+        if (currentNode.leftchild == null && currentNode.rightChild == null) {
+            if (currentNode == root) {
+                root = null;
+            } else if(isLeftChild) {
+                parentNode.leftchild = null;
+            } else {
+                parentNode.rightChild = null;
+            }
+        } else if (currentNode.rightChild == null) {
+            if (currentNode == root) {
+                root = currentNode.leftchild;
+            } else if (isLeftChild) {
+                parentNode.leftchild = currentNode.leftchild;
+            } else {
+                parentNode.rightChild = currentNode.leftchild;
+            }
+        } else if (currentNode.leftchild == null) {
+            if (currentNode == root) {
+                root = currentNode.rightChild;
+            } else if (isLeftChild) {
+                parentNode.leftchild = currentNode.rightChild;
+            } else {
+                parentNode.rightChild = currentNode.leftchild;
+            }
+        } else {
+            Node replacement = getReplacementNode(currentNode);
+
+            if (currentNode == root) {
+                root = replacement;
+            } else if (isLeftChild) {
+                parentNode.leftchild = replacement;
+            } else {
+                parentNode.rightChild = replacement;
+            }
+
+            replacement.leftchild = currentNode.leftchild;
+        }
+        
+        return true;
+
+    }
+
+    public Node getReplacementNode(Node replacedNode) {
+        Node replacementParent = replacedNode;
+        Node replacement = replacedNode;
+
+        Node currentNode = replacedNode.rightChild;
+
+        while (currentNode != null) {
+            replacementParent = replacement;
+            replacement = currentNode;
+            currentNode = currentNode.leftchild;
+        }
+
+        if (replacement != replacedNode.rightChild) {
+            replacementParent.leftchild = replacement.rightChild;
+            replacement.rightChild = replacedNode.rightChild;
+        }
+
+        return replacement;
+    }
+
     public static void main(String[] args) {
         BinarySearchTree tree = new BinarySearchTree();
         tree.addNode(50, "Node 1");
@@ -83,5 +184,11 @@ class BinarySearchTree {
         tree.inOrderTraversal(tree.root);
         tree.preOrderTraversal(tree.root);
         tree.postOrderTraversal(tree.root);
+
+        System.out.println("\n Search for 30");
+        System.out.println(tree.findNode(30));
+
+        System.out.println("\"n Delete 25");
+        System.out.println(tree.deleteNode(30));
     }
 }
