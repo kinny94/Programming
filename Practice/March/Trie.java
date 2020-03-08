@@ -76,6 +76,7 @@ class Constants {
 class Trie {
 
     private Node root;
+    private int indexOfSingleChild;
 
     Trie() {
         this.root = new Node(""); // root node is always an empty string
@@ -166,6 +167,30 @@ class Trie {
             collect(childNode, prefix+childCharacter, allWords);
         }
     }
+
+    public String longestCommonPrefix() {
+        Node trieNode = root;
+        String longestCommonPrefix = "";
+
+        while(countNumOfChildren(trieNode) == 1 && !trieNode.getIsLeaf()) {
+            trieNode = trieNode.getChild(indexOfSingleChild);
+            longestCommonPrefix = longestCommonPrefix + String.valueOf((char) (indexOfSingleChild+'a'));
+        }
+
+        return longestCommonPrefix;
+    }
+
+    private int countNumOfChildren(Node trieNode) {
+        int numOfChildren = 0;
+        for (int i=0; i<trieNode.getChildren().length; ++i) {
+            if (trieNode.getChild(i) != null) {
+                numOfChildren++;
+                indexOfSingleChild = i;
+            }
+        }
+        return numOfChildren;
+    }
+
     public static void main(String[] args) {
         Trie trie = new Trie();
         trie.insert("joe", 1);
@@ -174,7 +199,9 @@ class Trie {
         trie.insert("jana", 3);
         trie.insert("jane", 3);
         trie.insert("jade", 3);
-        trie.insert("helloworld", 4);
+        // trie.insert("helloworld", 4);
+        // trie.insert("adam", 4);
+        // trie.insert("badass", 4);
 
         System.out.println(trie.search("joe"));
         System.out.println(trie.search("joee"));
@@ -198,5 +225,14 @@ class Trie {
         System.out.println();
         List<String> list4 = trie.allwordsWithPrefix("ja");
         System.out.println(list4);
+
+        // the following is used for sorting as well
+        System.out.println();
+        List<String> list5 = trie.allwordsWithPrefix("");
+        System.out.println(list5);
+
+        System.out.println();
+        System.out.println(trie.longestCommonPrefix());
+    
     }
 }
