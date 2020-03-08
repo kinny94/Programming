@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.*;
+
 class Node {
 
     private String character;
@@ -135,11 +138,42 @@ class Trie {
 
         return trieNode.getValue();
     }
+
+    public List<String> allwordsWithPrefix(String prefix) {
+        Node trieNode = root;
+        List<String> allWords = new ArrayList<String>();
+
+        for (int i=0; i<prefix.length(); ++i) {
+            char c = prefix.charAt(i);
+            int asciiIndex = c - 'a';
+            trieNode = trieNode.getChild(asciiIndex);
+        }
+
+        collect(trieNode, prefix, allWords);
+        return allWords;
+    }
+
+    private void  collect(Node node, String prefix, List<String> allWords) {
+        if (node== null) return;
+
+        if (node.getIsLeaf()) {
+            allWords.add(prefix);
+        }
+
+        for (Node childNode: node.getChildren()) {
+            if (childNode == null) continue;
+            String childCharacter = childNode.getCharacter();
+            collect(childNode, prefix+childCharacter, allWords);
+        }
+    }
     public static void main(String[] args) {
         Trie trie = new Trie();
         trie.insert("joe", 1);
         trie.insert("john", 2);
         trie.insert("johna", 3);
+        trie.insert("jana", 3);
+        trie.insert("jane", 3);
+        trie.insert("jade", 3);
         trie.insert("helloworld", 4);
 
         System.out.println(trie.search("joe"));
@@ -148,5 +182,21 @@ class Trie {
 
         System.out.println(trie.searchAsMap("joe"));
         System.out.println(trie.searchAsMap("johna"));
+
+        System.out.println();
+        List<String> list = trie.allwordsWithPrefix("jo");
+        System.out.println(list);
+
+        System.out.println();
+        List<String> list2 = trie.allwordsWithPrefix("jo");
+        System.out.println(list2);
+
+        System.out.println();
+        List<String> list3 = trie.allwordsWithPrefix("j");
+        System.out.println(list3);
+
+        System.out.println();
+        List<String> list4 = trie.allwordsWithPrefix("ja");
+        System.out.println(list4);
     }
 }
