@@ -1,3 +1,4 @@
+// get max item in a stack in O(1) time
 import java.util.Stack;
 
 class MaxInAStack {
