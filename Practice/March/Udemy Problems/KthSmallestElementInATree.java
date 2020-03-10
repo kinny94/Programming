@@ -259,7 +259,7 @@ class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
 }
 
 
-class KthSmallestElementInATree {
+class KthSmallestElementInATree<T extends Comparable<T>> {
   public static void main(String[] args) {
     Tree<Integer> bst = new BinarySearchTree();
     bst.insert(30);
