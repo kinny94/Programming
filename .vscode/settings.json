@@ -15,5 +15,11 @@
         "statusBarItem.hoverBackground": "#ab307e",
         "statusBar.foreground": "#e7e7e7"
     },
-    "peacock.color": "#832561"
+    "peacock.color": "#832561",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
 }
