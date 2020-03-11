@@ -2,6 +2,8 @@ import java.util.Stack;
 
 // implement a queue using stacks
 // we need to maintain two stacks, one for enqueue and one for dequeue
+
+// can also be done with recurrsion instead of using the second stack, but it will still be using a stack, since the os will maintain a stack for the recurrsion calls
 class QueueWithAStack {
     private Stack<Integer> enqueueStack;
     private Stack<Integer> dequeueStack;
