@@ -38,10 +38,10 @@ class LongestRepeatedSubstring {
             } 
         }
         return longestSubString;
-    }
+    }   
 
     public static void main(String[] args) {
         LongestRepeatedSubstring lps = new LongestRepeatedSubstring();
-        System.out.println(lps.longestRepeatedSubstring("hellohellohehe"));
+        System.out.println(lps.longestRepeatedSubstring("abab"));
     }
 }
