@@ -8,17 +8,19 @@
  * }
  */
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-
-class DeleteNodeAndReturnForest {
+class Solution {
     
     List<TreeNode> result;
-    List<Integer> toDeleteList;
+    Set<Integer> toDeleteList;
+
     
-    DeleteNodeAndReturnForest() {
+    Solution() {
         this.result = new ArrayList<TreeNode>();
-        this.toDeleteList = new ArrayList<Integer>();
+        this.toDeleteList = new HashSet<Integer>();
     }
     
     public List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
