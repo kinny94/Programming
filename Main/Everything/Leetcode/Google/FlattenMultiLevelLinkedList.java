@@ -25,7 +25,7 @@ class FlattenMultiLevelLinkedList {
             }
             
             // connect p with p.child and remove p.child
-            p.next = p.child;
+            p.next = p.child;   
             p.child.prev = p;
             p.child = null;
         }
