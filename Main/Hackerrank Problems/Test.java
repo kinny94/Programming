@@ -1,51 +1,80 @@
-public static List<Integer> get(int v, int e, int [][]eg) {
-    List<Integer> ans = new LinkedList<>();
-    int[]id = new int[v];
-    Arrays.fill(id, -1);
-    int[]low = new int[v];
-    int[]ar = new int[v];
-    List<Integer>[] graph = new List[v];
-    for (int i = 0; i < v; i++) graph[i] = new ArrayList<>();
-    for (int edg[] : eg) {
-        int x = edg[0];
-        int y = edg[1];
-        graph[x].add(y);
-        graph[y].add(x);
+import java.util.*;
+// "static void main" must be defined in a public class.
+public class Test {
+    public static void main(String[] args) {
+        
+        
+        int numCompetitors = 6;
+        int topNCompetitors = 2;
+        String[] competitors = {"newshop", "shopnow", "afshion", "fashionbeats", "mymarket", "tcellular"};
+        int numReviews = 6;
+        String[] reviews = {"newshop is afshion providing good services in the city; everyone should use newshop", "best services by newshop", "fashionbeats has great services in the city", "i am proud to have fashionbeats", "mymarket has awesome services", "Thanks Newshop for the quick delivery afshion"};
+
+        /*
+        intuition: Top N frequently used words
+        - store the competitors into map, along with their frequent count
+        - loop through reviews
+            - convert the review to lowercase, and split by space
+            - if a word is not a competitor then avoid
+            - if a word is being used already for a review then avoid
+            - else increase the count of the competitor
+        - Create a PriorityQueue to find the N top elements, and provided logic to sort
+        - Create an array, and fill up with the N top elements
+        */
+                
+        List<String> result = getTopCompetitors(numCompetitors, topNCompetitors, competitors, numReviews, reviews);
+        
+        System.out.println(result);
     }
-    for (int i = 0; i < v; i++) {
-        if (id[i] == -1) {
-            count = 0;
-            dfs(i, i, -1, id, low, graph, ar);
-            if (count > 1) ar[i] = 1;
-            else ar[i] = 0;
+    
+    
+    public static List<String> getTopCompetitors(int numCompetitors, int topNCompetitors
+                                                 , String[] competitors, int numReviews, String[] reviews) {
+        HashMap<String, Integer> map = new HashMap<>();
+        // add all competitors into HashMap
+        for(int i=0; i<numCompetitors; i++) {
+            map.put(competitors[i].toLowerCase(), 0);
         }
-        if (ar[i] == 1) ans.add(i);
-    }
-    return ans;
-}
-static int ii = 0;
-static int count;
-public static void dfs(int root, int at, int parent, int[] id, int[] low, List<Integer>[]graph, int[] ans) {
-    if (root == parent) count++;
-    id[at] = ii;
-    low[at] = ii;
-    ii++;
-    for (int to : graph[at]) {
-        if (to == parent) continue;
-        if (id[to] == -1) {
-            dfs(root, to, at, id, low, graph, ans);
-            low[at] = Math.min(low[at], low[to]);
-            if (id[at] <= low[to]) {
-                ans[at] = 1;
+        
+        // O(N)
+        // loop through all reveiws
+        for(String review: reviews) {
+            String[] words = review.toLowerCase().split(" ");
+            
+            Set<String> used = new HashSet<>();
+            // loop through all words in a review
+            for(String word: words) {
+                if(map.containsKey(word)
+                   && used.add(word)) {
+                    map.put(word, map.get(word) + 1);
+                }
             }
         }
-        else {
-            low[at] = Math.min(low[at], id[to]);
+        
+        // O(log N)
+        PriorityQueue<Map.Entry<String, Integer>> queue = new PriorityQueue<>((a, b) -> ( a.getValue() == b.getValue() 
+                                                                                                                                               ? b.getKey().compareTo(a.getKey())
+                                                                                                                                               : a.getValue() - b.getValue() ));
+        
+        // O(N)
+        for(Map.Entry entry: map.entrySet()) {
+            queue.offer(entry);
+            if(queue.size() > topNCompetitors) {
+                queue.poll();
+            }
         }
+        
+        // O(N)
+        String[] result = new String[topNCompetitors];
+        for(int i=topNCompetitors-1; i>=0 && !queue.isEmpty(); i--) {
+            Map.Entry<String, Integer> entry = queue.poll();
+            result[i] = entry.getKey();
+        }
+        
+        ArrayList<String> r = new ArrayList<>();
+        for(String d: result) {
+            r.add(d);
+        }
+        return r;
     }
-}
-
-public static void main(String[] args) {
-    int[][]eg = {{0, 1}, {0, 2}, {1, 3}, {2, 3}, {2, 5}, {5, 6}, {3, 4}, {6, 7}, {7, 8}};
-    List<Integer> ans = get(9, 9, eg);
 }
