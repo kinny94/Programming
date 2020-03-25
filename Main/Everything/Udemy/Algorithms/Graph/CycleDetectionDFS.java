@@ -67,7 +67,7 @@ class CycleDetectionDFS {
         for (Vertex v: vertex.getAdjacenciesList()) {
 
             System.out.println("Visiting the neighbor of vertex: " + vertex);
-            if (!v.getIsBeingVisited()) {
+            if (v.getIsBeingVisited()) {
                 System.out.println("There is a backward edge: So there is a cycle");
                 return;
             }

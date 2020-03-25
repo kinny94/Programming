@@ -229,9 +229,7 @@ class CompareBinaryTree<T extends Comparable<T>> {
 
     if (node1.getData().compareTo(node2.getData()) != 0) return false;
 
-    return compareTree( 
-      node1.getLeftChild(), node2.getLeftChild()) && 
-      compareTree(node1.getRightChild(), node2.getRightChild());
+    return compareTree(node1.getLeftChild(), node2.getLeftChild()) && compareTree(node1.getRightChild(), node2.getRightChild());
   }
 
   public static void main(String[] args) {

@@ -13,6 +13,6 @@ class LongestCommonPrefix {
 
     public static void main(String[] args) {
         LongestCommonPrefix lcp = new LongestCommonPrefix();
-        System.out.println(lcp.longestCommonPrefix("helloo", "jello"));
+        System.out.println(lcp.longestCommonPrefix("helloo", "hello"));
     }
 }
