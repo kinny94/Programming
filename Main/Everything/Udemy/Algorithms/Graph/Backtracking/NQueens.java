@@ -21,7 +21,7 @@ class NQueens {
             for (int j=0; j<chessTable.length; j++) {
                 if (chessTable[i][j] == 1) {
                     System.out.print(" * ");
-                } else {
+                }  else {
                     // Empty spaces
                     System.out.print(" - ");
                 }
