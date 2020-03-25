@@ -3,31 +3,6 @@ import java.util.*;
 
 public class TopNCompetitors {
     public static void main(String[] args) {
-        
-        
-        int numCompetitors = 5;
-        int topNCompetitors = 2;
-        String[] competitors = {"anacell", "betacellular", "cetracular", "deltacellular", "eurocell"};
-        int numReviews = 3;
-        String[] reviews = {
-            "I love anacell best services provided by anacell", 
-            "betacellular has great services", 
-            "deltacellular provides much better services than betacellular", 
-            "cetracular is worse than eurocell",
-            "betacellular is better than deltacellular"
-        };
-
-        /*
-        intuition: Top N frequently used words
-        - store the competitors into map, along with their frequent count
-        - loop through reviews
-            - convert the review to lowercase, and split by space
-            - if a word is not a competitor then avoid
-            - if a word is being used already for a review then avoid
-            - else increase the count of the competitor
-        - Create a PriorityQueue to find the N top elements, and provided logic to sort
-        - Create an array, and fill up with the N top elements
-        */
                 
         List<String> result = getTopCompetitors(numCompetitors, topNCompetitors, competitors, numReviews, reviews);
         
