@@ -1,3 +1,5 @@
+import java.util.*;
+
 class ReorderLogFile {
     public String[] reorderLogFiles(String[] logs) {
         Arrays.sort(logs, (log1, log2) -> {
@@ -13,5 +15,17 @@ class ReorderLogFile {
             return isDigit1 ? (isDigit2 ? 0 : 1) : -1;
         });
         return logs;
+    }
+
+    public static void main(String[] args) {
+        String[] test = {
+            "mi2 jog mid pet",
+            "wz3 34 54 398",
+            "al alps cow bar",
+            "x4 45 21 7"
+        };
+
+        ReorderLogFile tes =new ReorderLogFile();
+        System.out.println(Arrays.asList(tes.reorderLogFiles(test)));
     }
 }
