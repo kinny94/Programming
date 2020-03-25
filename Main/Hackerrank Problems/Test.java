@@ -1,54 +1,51 @@
-import java.util.*;
-
-class Test {
-    static int time = 0;
+public static List<Integer> get(int v, int e, int [][]eg) {
+    List<Integer> ans = new LinkedList<>();
+    int[]id = new int[v];
+    Arrays.fill(id, -1);
+    int[]low = new int[v];
+    int[]ar = new int[v];
+    List<Integer>[] graph = new List[v];
+    for (int i = 0; i < v; i++) graph[i] = new ArrayList<>();
+    for (int edg[] : eg) {
+        int x = edg[0];
+        int y = edg[1];
+        graph[x].add(y);
+        graph[y].add(x);
+    }
+    for (int i = 0; i < v; i++) {
+        if (id[i] == -1) {
+            count = 0;
+            dfs(i, i, -1, id, low, graph, ar);
+            if (count > 1) ar[i] = 1;
+            else ar[i] = 0;
+        }
+        if (ar[i] == 1) ans.add(i);
+    }
+    return ans;
+}
+static int ii = 0;
+static int count;
+public static void dfs(int root, int at, int parent, int[] id, int[] low, List<Integer>[]graph, int[] ans) {
+    if (root == parent) count++;
+    id[at] = ii;
+    low[at] = ii;
+    ii++;
+    for (int to : graph[at]) {
+        if (to == parent) continue;
+        if (id[to] == -1) {
+            dfs(root, to, at, id, low, graph, ans);
+            low[at] = Math.min(low[at], low[to]);
+            if (id[at] <= low[to]) {
+                ans[at] = 1;
+            }
+        }
+        else {
+            low[at] = Math.min(low[at], id[to]);
+        }
+    }
+}
 
 public static void main(String[] args) {
-	int numRouters1 = 7;
-	int numLinks1 = 7;
-	int[][] links1 = {{0, 1}, {0, 2}, {1, 3}, {2, 3}, {2, 5}, {5, 6}, {3, 4}};
-	System.out.println(getCriticalNodes(links1, numLinks1, numRouters1));
-}
-
-private static List<Integer> getCriticalNodes(int[][] links, int numLinks, int numRouters) {
-	time = 0;
-	Map<Integer, Set<Integer>> map = new HashMap<>();
-	for(int i=0;i<numRouters;i++) {
-		map.put(i, new HashSet<>());
-	}
-	for(int[] link : links) {
-		map.get(link[0]).add(link[1]);
-		map.get(link[1]).add(link[0]);
-	}
-	Set<Integer> set = new HashSet<>();
-	int[] low = new int[numRouters];
-	int[] ids = new int[numRouters];
-	int parent[] = new int[numRouters]; 
-	Arrays.fill(ids, -1);
-	Arrays.fill(parent, -1);
-	for(int i=0;i<numRouters;i++) {
-		if(ids[i] == -1)
-			dfs(map, low, ids, parent, i, set);
-	}
-	return new ArrayList<>(set);
-}
-
-
-
-private static void dfs(Map<Integer, Set<Integer>> map, int[] low, int[] ids, int[] parent, int cur, Set<Integer> res) {
-	int children = 0; 
-	ids[cur] = low[cur]= ++time;
-	for(int nei : map.get(cur)) {
-		if(ids[nei] == -1) {
-			children++;
-			parent[nei] = cur;
-			dfs(map, low, ids, parent,nei, res);
-			low[cur] = Math.min(low[cur], low[nei]);
-			if((parent[cur] == -1 && children > 1) || (parent[cur] != -1 && low[nei] >= ids[cur]))
-				res.add(cur);
-		}
-		else if(nei != parent[cur])
-			low[cur] = Math.min(low[cur], ids[nei]);
-	}
-}
+    int[][]eg = {{0, 1}, {0, 2}, {1, 3}, {2, 3}, {2, 5}, {5, 6}, {3, 4}, {6, 7}, {7, 8}};
+    List<Integer> ans = get(9, 9, eg);
 }
