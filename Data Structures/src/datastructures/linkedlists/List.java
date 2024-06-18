@@ -1,4 +1,4 @@
-package datastructres.linkedlists;
+package datastructures.linkedlists;
 
 public interface List<T> {
     public void insert(T data);
