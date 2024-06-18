@@ -1,4 +1,4 @@
-package doublyLinkedLists;
+package datastructures.doublyLinkedLists;
 
 public class Node<T extends Comparable<T>> {
 

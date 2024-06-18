@@ -1,4 +1,4 @@
-package datastructures.linkedlists;
+package datastructures.LinkedLists;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,6 +34,10 @@ public class Main {
 
         persons.remove(klay);
         System.out.println();
+        persons.traverse();
+        System.out.println();
+        System.out.println("Middle person: " +  persons.getMiddleNode());
+        persons.reverse();
         persons.traverse();
     }
 }

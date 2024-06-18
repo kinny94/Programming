@@ -1,9 +1,35 @@
-package datastructures.linkedlists;
+package datastructures.LinkedLists;
 
 public class LinkedList<T extends Comparable<T>> implements List<T> {
 
     private Node<T> root;
     private int numOfItems;
+
+    public Node<T> getMiddleNode() {
+        Node<T> slowPoiner = root;
+        Node<T> fastPointer = root;
+
+        while (fastPointer.getNextNode() != null && fastPointer.getNextNode().getNextNode() != null) {
+            slowPoiner = slowPoiner.getNextNode();
+            fastPointer = fastPointer.getNextNode().getNextNode();
+        }
+        return slowPoiner;
+    }
+
+
+    public void reverse() {
+        Node<T> currentNode = this.root;
+        Node<T> nextNode = null;
+        Node<T> previousNode = null;
+
+        while (currentNode != null) {
+            nextNode = currentNode.getNextNode();
+            currentNode.setNextNode(previousNode);
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+        this.root = previousNode;
+    }
 
     @Override
     public void insert(T data) {
