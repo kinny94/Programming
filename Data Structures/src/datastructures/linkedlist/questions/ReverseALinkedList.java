@@ -16,12 +16,11 @@ public class ReverseALinkedList implements List {
             prev = current;
             current = temp;
         }
-        root = current;
+        root = prev;
         // this is where you implement the algorithm !!!
 
     }
 
-    @Override
     public Node get(int index) {
 
         int counter = 0;
