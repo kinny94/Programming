@@ -1,4 +1,4 @@
-package datastructures.leetcode.string;
+package leetcode.string;
 
 public class ReverseAString {
     public void reverseString(char[] s) {

@@ -1,4 +1,4 @@
-package datastructures.leetcode.integer;
+package leetcode.integer;
 
 public class ReverseAnInteger {
     public int reverse(int x) {
