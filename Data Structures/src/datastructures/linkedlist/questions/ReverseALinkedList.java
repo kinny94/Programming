@@ -48,7 +48,7 @@ public class ReverseALinkedList implements List {
         if(root==null) {
             // this is the first item in the linked list
             root = new Node(data);
-        } else {
+          } else {
             // we know that this is not the first item in the linked list
             insertBeginning(data);
         }
