@@ -1,13 +1,10 @@
 package datastructures.binarysearchtrees;
 
-import java.sql.SQLOutput;
-
 class Node<T> {
 
-    public T data;
-    public Node<T> left;
-    public Node<T> right;
-    public Node<T> parent;
+    private T data;
+    private Node<T> left;
+    private Node<T> right;
 
     public Node(T data) {
         this.data = data;
@@ -36,11 +33,6 @@ class Node<T> {
     public void setRight(Node<T> right) {
         this.right = right;
     }
-
-    @Override
-    public String toString() {
-        return super.toString();
-    }
 }
 
 public class BinarySearchTree<T extends Comparable<T>> {
@@ -62,9 +54,9 @@ public class BinarySearchTree<T extends Comparable<T>> {
         }
 
         if (data.compareTo(node.getData()) < 0) {
-            node.left = insertRec(node.getLeft(), data);
+            node.setLeft(insertRec(node.getLeft(), data));
         } else if (data.compareTo(node.getData()) > 0) {
-            node.right = insertRec(node.getRight(), data);
+            node.setRight(insertRec(node.getRight(), data));
         }
 
         return node;
