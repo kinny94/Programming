@@ -23,7 +23,6 @@ class PathSum {
             return true;
         }
 
-
         return hasPath(node.left, target - node.val) || hasPath(node.right, target - node.val);
 
     }
