@@ -81,9 +81,9 @@ class IPRouting {
     public static void main(String[] args) {
         IPTrie trie = new IPTrie();
         trie.insert("243.189.345.123");
-        trie.insert("243.189.562.173");
-        trie.insert("243.145.111.173");
-        trie.insert("243.189.123.763");
+//        trie.insert("243.189.562.173");
+//        trie.insert("243.145.111.173");
+//        trie.insert("243.189.123.763");
         trie.insert("243.189.345.221");
         System.out.println("Longest Common Prefix: " + trie.lcpForIp());
     }
