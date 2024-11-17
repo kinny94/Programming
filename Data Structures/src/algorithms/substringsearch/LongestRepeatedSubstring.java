@@ -6,6 +6,7 @@ import java.util.List;
 
 public class LongestRepeatedSubstring {
 
+    // Complexity is O(N*N). It can be done better with suffix tries
     public String longestRepeatedSubstring(String text) {
         List<String> suffixes = getSuffixes(text);
         Collections.sort(suffixes);
