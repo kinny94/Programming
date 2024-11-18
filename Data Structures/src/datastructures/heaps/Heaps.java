@@ -68,11 +68,11 @@ class Heaps {
       int rightChildIndex = (index*2) + 2;
 
       int largestIndex = index;
-      if (leftChildIndex < heapSize && heap[leftChildIndex] > heap[index]) {
+      if (leftChildIndex < heapSize && heap[leftChildIndex] > heap[largestIndex]) {
          largestIndex = leftChildIndex;
       }
 
-      if (rightChildIndex < heapSize && heap[rightChildIndex] > heap[index]) {
+      if (rightChildIndex < heapSize && heap[rightChildIndex] > heap[largestIndex]) {
          largestIndex = rightChildIndex;
       }
 
