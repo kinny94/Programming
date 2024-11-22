@@ -32,6 +32,20 @@ public class Knapsack {
         showResult();
     }
 
+    public int solveRecursively(int capacity, int weights[], int[] values, int items) {
+        if (items == 0 || capacity == 0) {
+            return  0;
+        }
+
+        if (weights[items - 1] > capacity) {
+            return solveRecursively(capacity, weights, values, items);
+        } else {
+            int excludeCurrent = solveRecursively(capacity, weights, values, items - 1);
+            int includeCurrent = values[items - 1] + solveRecursively(capacity - weights[items - 1], weights, values, items - 1);
+            return Math.max(excludeCurrent, includeCurrent);
+        }
+    }
+
     public void showResult() {
         System.out.println("Total benefits: " + dp[numOfItems][maxCapacity]);
         for (int i=numOfItems, w=maxCapacity; i>0; i--) {
@@ -43,7 +57,12 @@ public class Knapsack {
     }
 
     public static void main(String[] args) {
+        int numOfItems = 4;
+        int maxCapacity = 7;
+        int[] weights = new int[]{0, 1, 3, 4, 5};
+        int[] values = new int[]{0, 1, 4, 5, 7};
         Knapsack knapsack = new Knapsack(4, 7, new int[]{0, 1, 3, 4, 5}, new int[]{0, 1, 4, 5, 7});
         knapsack.solve();
+        System.out.println(knapsack.solveRecursively(maxCapacity, weights, values, numOfItems));
     }
 }
