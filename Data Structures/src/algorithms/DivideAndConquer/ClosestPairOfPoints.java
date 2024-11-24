@@ -1,5 +1,5 @@
 package algorithms.DivideAndConquer;
-
+// Optimal solution is too much based on math than problem solving itself
 import java.util.*;
 
 class Point {
