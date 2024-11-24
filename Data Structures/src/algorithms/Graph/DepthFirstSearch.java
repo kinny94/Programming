@@ -85,8 +85,34 @@ public class DepthFirstSearch {
 
         DepthFirstSearch dfs = new DepthFirstSearch();
         dfs.dfs(list);
-//        System.out.println(list);
-        System.out.println("**********");
-        dfs.dfsRecursion(list);
+        System.out.println("************");
+
+        List<Vertex> list2 = new ArrayList<>();
+        Vertex x1 = new Vertex("A");
+        Vertex x2 = new Vertex("B");
+        Vertex x3 = new Vertex("C");
+        Vertex x4 = new Vertex("D");
+        Vertex x5 = new Vertex("E");
+        Vertex x6 = new Vertex("F");
+        Vertex x7 = new Vertex("G");
+        Vertex x8 = new Vertex("H");
+
+        x1.neighbors.add(x2);
+        x1.neighbors.add(x6);
+        x1.neighbors.add(x7);
+        x2.neighbors.add(x3);
+        x2.neighbors.add(x4);
+        x4.neighbors.add(x5);
+        x7.neighbors.add(x8);
+
+        list2.add(x1);
+        list2.add(x2);
+        list2.add(x3);
+        list2.add(x4);
+        list2.add(x5);
+        list2.add(x6);
+        list2.add(x7);
+
+        dfs.dfsRecursion(list2);
     }
 }
