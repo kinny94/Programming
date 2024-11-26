@@ -1,4 +1,4 @@
-package algorithms.Graph;
+package algorithms.Graph.ShortestPath;
 
 public class FloydWarshall {
 
