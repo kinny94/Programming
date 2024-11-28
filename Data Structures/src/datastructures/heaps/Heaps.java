@@ -91,9 +91,10 @@ class Heaps {
       int n = heapSize;
       for (int i=0; i<n; i++) {
          int max = poll();
-         System.out.println(max);
+         System.out.print(max + " ");
       }
    }
+
 
    public static void main(String[] args) {
 

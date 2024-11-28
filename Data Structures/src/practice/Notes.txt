@@ -1,0 +1,39 @@
+* Priority Queue 
+
+They are an abstract data structure in which every item has an additional property value. They uses heaps. Heaps are basically binary trees. Every node can have at max two children therefore they are almost balance binary trees.
+Max heap - The keys of the parent are always greater than the children. Root has the maximum value.
+Min heap - The keys of the parent are always smaller than the children. Root has the minimum value.
+If we consider the node at the index  i then 
+Left child = 2i + 1
+Right child = 2i + 2
+
+Implementation: 
+1.) Create a heap array with a specfic capacity and set the heapsize as 0 in the begininig;
+2.) Insert the element in the heap with the heapSize index and increase the heapsize
+3.) Call the fixUp method which will replace the children with its parents (from the index calculas) if there are any violations.
+4.) Do the similar thing with removal as well. But in this case we will first swap the root element with the leaf and will then fix the violations.
+
+
+* Tries
+Root is always associated with an empty string and then the children of one node are nodes with number of alphabets in the language.
+
+Implementation
+1.) Create a single Node with Node[] for children. Add a check for leaf
+2.) The children array for Node[] should be the size of the number of alphabets
+3.) Insert the root element as an empty String.
+4.) For Insertionm, check if the current character of the string is already present as a children for the current Node. If its not, add it and if it is consider, make that children the current node
+5.) For autoComplete, traverse the children tree, until you get all the children and their children starting with that prefix.
+6.) Collect will give you the list of all the elements starting fromt the prefix
+
+
+* Ternary trees
+Ternary trees are more memory efficient than tries. Every ndoe can have three children in a ternary tree. We can make ternary trees balanced but its usually not worth the effort. 
+Left child is smaller than the root
+Right child is larger than the root
+Middle child is equal to the root.
+They are more memory efficient than tries but are not as fast as tries. (because of rotations) that needs to be done.
+
+Implementation
+1.) Create a Node class with 3 children as Left, right and mniddle child. Also add a check for a leaf node.
+2.) Insert - Check the location of the current node and go to left or right based on the value comparison. If its the middle child check if its the last letter of the string. If its the last element of the given string, return true if its the a left node.
+3.) Get - Do the same comparison as in insert and return true if its a leaf
