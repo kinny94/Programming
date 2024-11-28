@@ -5,6 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "KnuttMoris",
+            "request": "launch",
+            "mainClass": "practice.Nov28.KnuttMoris",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "RabinKarp",
+            "request": "launch",
+            "mainClass": "practice.Nov28.RabinKarp",
+            "projectName": "Programming_5851d589"
+        },
+        {
             "name": "Java",
             "type": "java",
             "request": "launch",

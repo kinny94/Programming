@@ -1,0 +1,28 @@
+* Rabin - Karp algorithm
+- We check for the subsstring by comapring the values of the characters which are manipulated by hash functions to avoid unexpected/invalid search. 
+We consider a = 1, b=2... t=20... so TTTTA and TTA search would be T+T+A = 41 which is there in the original search but 41 could also come from a different permuation sum of 3 characters for eg. S+T+B = 41, so we use hash function to create a unique value for this match.
+We compute the h(p) has value of the pattern in advance in O(m) running time. - M is the length of the pattern. 
+If the hash values are matching then we have to use standard character comparisons one by one.
+The spurious hit can be eliminated by using the Rabin karp fingerprint function.
+f(x) = m0 + m1*X + .... m(n-1)*X^n-1
+
+for eg AAC would be 1*26^2 + 1*26^1 + 3*26^0 = 705
+We can also use a module with a prime number to simplify this math
+It is crucial to be able to calculate the nextb hash value in O(1) of the substring. Most of the letters are the same for the next hash value so the rolling function hash allows to calculate the hash without rehashing the whole substring.
+For creating the hash we can use the following 
+
+hashValue = character value * Math.pow(prime, i);
+where i will be current iteration of a character in the stirng and prime could be any prime number.
+
+Also, you dont' have to iterate over the entire string to get the pattern match. Just iterate over text.length - pattern.length;
+	•	Best case (no collisions):  O(n + m) .
+	•	Worst case (many collisions):  O(n \cdot m) .
+	•	Average case (few collisions with good hash):  O(n + m) .
+
+
+KNUTT MORIS PRATT 
+KMP has O(N+M) worst case complexiy. The algorithm must preprocess the pattern with the O(M) running time.
+We have to anylyze the prefix and suffix.
+KMP preprocess stage analyze the pattern and checks whether some prefixes are mathcing any suffixes in pattern. We look for the longest prefix which is the same as some prefixes.
+The pi table encapsualtes the knowledge about how the pattern matches against the shift of itself. This information can be used to avoid a useless shift of the P pattern.
+While constructing the pi table we don't care about the first letter since its always gonna be 0
