@@ -1,0 +1,20 @@
+Quickselect
+It is able to find the Kth smallest/largest element in an unordered array. It has O(N) linear running time.
+The concept is similar to that of Quicksort but instead of recursing both side, we just take one.
+
+algorithm
+1.) Choose a so called pivot item at random
+2.) Partition the array
+3.) Instead of recusion on both side, we just take one.
+
+The partition phase
+the partition method is jsut for partitioning the array to the pivot.
+Chose a pivot at random,
+Re arrandge the array in a way that all elements less than pivot are on the left side and all the elements greater than the pivot are one the right side.
+Partion returns the final position of the pivot.
+
+The selection phase
+After partitioning there may be
+K == pivot - We doubdn the kth index
+K < pivotthe kth smallest item is on the left side if the pivotm discard the other subarray
+K > pivot - the kth smallest item is on the right edge of the pivt
