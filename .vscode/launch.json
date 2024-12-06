@@ -6,6 +6,118 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FloydWarshall",
+            "request": "launch",
+            "mainClass": "practice.Dec1.FloydWarshall",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "BellmanFord",
+            "request": "launch",
+            "mainClass": "practice.Dec1.BellmanFord",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "Dijkstra",
+            "request": "launch",
+            "mainClass": "practice.Nov28.Dijkstra",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "TopologicalOrderingShortestPath",
+            "request": "launch",
+            "mainClass": "algorithms.Graph.ShortestPath.TopologicalOrderingShortestPath",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "TopologicalOrderingShortestPath",
+            "request": "launch",
+            "mainClass": "practice.Nov28.TopologicalOrderingShortestPath",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "TopologicalOrdering",
+            "request": "launch",
+            "mainClass": "practice.Nov28.TopologicalOrdering",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "DFS",
+            "request": "launch",
+            "mainClass": "practice.Nov28.DFS",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "BFS",
+            "request": "launch",
+            "mainClass": "practice.Nov28.BFS",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "MazeProblem",
+            "request": "launch",
+            "mainClass": "practice.Nov28.MazeProblem",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "KnightTourProblem",
+            "request": "launch",
+            "mainClass": "practice.Nov28.KnightTourProblem",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "ColoringProblem",
+            "request": "launch",
+            "mainClass": "practice.Nov28.ColoringProblem",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "HamiltonCycle",
+            "request": "launch",
+            "mainClass": "practice.Nov28.HamiltonCycle",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "NQueens",
+            "request": "launch",
+            "mainClass": "practice.Nov28.NQueens",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "QuickSelect",
+            "request": "launch",
+            "mainClass": "practice.Nov28.QuickSelect",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "GCDEuclidean",
+            "request": "launch",
+            "mainClass": "practice.Nov28.GCDEuclidean",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
+            "name": "TowersOfHanoi",
+            "request": "launch",
+            "mainClass": "practice.Nov28.TowersOfHanoi",
+            "projectName": "Programming_5851d589"
+        },
+        {
+            "type": "java",
             "name": "KnuttMoris",
             "request": "launch",
             "mainClass": "practice.Nov28.KnuttMoris",
