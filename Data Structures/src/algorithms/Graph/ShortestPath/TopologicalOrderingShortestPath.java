@@ -78,7 +78,7 @@ public class TopologicalOrderingShortestPath {
             Vertex vertex = topologicalOrderingStack.pop();
             for (Edge edge : vertex.neighbors) {
                 Vertex u = edge.targetVertex;
-                if (u.minDistance > u.minDistance + edge.weight) {
+                if (u.minDistance > vertex.minDistance + edge.weight) {
                     u.minDistance = vertex.minDistance + edge.weight;
                     u.predecessor = vertex;
                 }
