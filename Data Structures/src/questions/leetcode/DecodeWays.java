@@ -14,27 +14,22 @@ public class DecodeWays {
             return 1;
         }
 
+        if (s.charAt(index) == '0') {
+            return 0;
+        }
+
         if (dp[index] != -1) {
             return dp[index];
         }
 
-        int ans = 0;
-        if (s.charAt(index) == 0) {
-            return 0;
+
+        if (index + 1 < s.length()) {
+            String concat = String.valueOf(s.charAt(index)) + String.valueOf(s.charAt(index + 1));
+            if (Integer.valueOf(concat) >= 10 && Integer.valueOf(concat) <= 26) {
+                return dp[index] = numDecodings(s, index + 1, dp) + numDecodings(s, index + 2, dp);
+            }
         }
 
-        if (s.charAt(index) >= '1' && s.charAt(index) <= '9') {
-            ans += numDecodings(s, index+1, dp);
-        }
-
-        if (index + 1 < s.length() && s.charAt(index) == '1') {
-            ans += numDecodings(s, index + 2, dp);
-        }
-
-        if (index + 1 < s.length() && (s.charAt(index) == '2' && s.charAt(index + 1) <= '6')) {
-            ans += numDecodings(s, index + 2, dp);
-        }
-        dp[index] = ans;
-        return ans;
+        return dp[index] = numDecodings(s, index + 1,  dp);
     }
 }
