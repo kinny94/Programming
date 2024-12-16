@@ -6,7 +6,7 @@ public class RandomPickIndex {
     Map<Integer, List<Integer>> freqMap = new HashMap<>();
     public RandomPickIndex(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
-            if (!freqMap.containsKey(nums[i])) {
+              if (!freqMap.containsKey(nums[i])) {
                 freqMap.put(nums[i], new ArrayList<>());
             }
             freqMap.get(nums[i]).add(i);
