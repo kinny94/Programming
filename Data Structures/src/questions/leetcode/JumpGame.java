@@ -2,14 +2,12 @@ package questions.leetcode;
 
 public class JumpGame {
     public boolean canJump(int[] nums) {
-        int n = nums.length;
-        int lastGoodIndex = n - 1;
-
-        for (int i=n-2; i>=0; i--) {
-            if (nums[i] + i >= lastGoodIndex) {
-                lastGoodIndex = i;
+        int targetIndex = nums.length - 1;
+        for (int i=nums.length - 1; i>=0; i--) {
+            if (targetIndex <= (i + nums[i])) {
+                targetIndex = i;
             }
         }
-        return lastGoodIndex == 0;
+        return targetIndex == 0;
     }
 }

@@ -13,7 +13,7 @@ public class Subsets {
         int s = 0;
         for(int i =0; i<nums.length; i++){
             s = result.size();
-            for(int j = 0;j<result.size();j++){
+            for(int j = 0;j<s;j++){
                 List<Integer> set = new ArrayList<>(result.get(j));
                 set.add(nums[i]);
                 result.add(set);
