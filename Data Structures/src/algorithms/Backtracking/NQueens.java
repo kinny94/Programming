@@ -1,87 +1,91 @@
 package algorithms.Backtracking;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class NQueens {
 
     private int[][] chessTable;
     private int numOfQueens;
+    private List<List<String>> solutions; // To store all solutions
 
     public NQueens(int n) {
         this.numOfQueens = n;
         this.chessTable = new int[n][n];
+        this.solutions = new ArrayList<>();
     }
 
-    public void solve() {
-        if (setQueens(0)) {
-            printQueens();
-        } else {
-            System.out.println("No solution");
-        }
+    public List<List<String>> solve() {
+        setQueens(0);
+        return solutions;
     }
 
-    // since we have same number of queens as the number of columns
     private boolean setQueens(int colIndex) {
         if (colIndex == numOfQueens) {
-            return true;
+            saveSolution(); // Save the current solution
+            return true; // Continue searching for other solutions
         }
 
-        // we consider all the places in the next row for the queens position
+        boolean foundSolution = false;
+
         for (int rowIndex = 0; rowIndex < numOfQueens; rowIndex++) {
             if (isPlaceValid(rowIndex, colIndex)) {
                 chessTable[rowIndex][colIndex] = 1;
-                if (setQueens(colIndex + 1)) {
-                    return true;
-                }
-                chessTable[rowIndex][colIndex] = 0;
+                foundSolution = setQueens(colIndex + 1) || foundSolution;
+                chessTable[rowIndex][colIndex] = 0; // Backtrack
             }
         }
-        // cannot found a valid location. have to change the position of the already settled queens
-        return false;
+
+        return foundSolution;
     }
 
     private boolean isPlaceValid(int rowIndex, int colIndex) {
-        for (int i=0;i<colIndex; i++) {
+        for (int i = 0; i < colIndex; i++) {
             if (chessTable[rowIndex][i] == 1) {
-                // same column... not possible
                 return false;
             }
-            //
         }
 
-        // check the diagonal
-        for (int i=rowIndex, j=colIndex;i>=0 && j>=0;i--, j--) {
-            if (chessTable[i][j] == 1) {
+        // Check the diagonals on the left
+        for (int i = 0; i <= colIndex; i++) {
+            // Upper-left diagonal
+            if (rowIndex - i >= 0 && colIndex - i >= 0 && chessTable[rowIndex - i][colIndex - i] == 1) {
+                return false;
+            }
+            // Lower-left diagonal
+            if (rowIndex + i < chessTable.length && colIndex - i >= 0 && chessTable[rowIndex + i][colIndex - i] == 1) {
                 return false;
             }
         }
-        // check the other diagonal
-        for (int i=rowIndex, j=colIndex;i<chessTable.length && j>=0;i++, j--) {
-            if (chessTable[i][j] == 1) {
-                return false;
-            }
-        }
-        // the position is valid
+
         return true;
     }
 
-    private void printQueens() {
+    private void saveSolution() {
+        List<String> currentSolution = new ArrayList<>();
         for (int i = 0; i < numOfQueens; i++) {
+            StringBuilder row = new StringBuilder();
             for (int j = 0; j < numOfQueens; j++) {
                 if (chessTable[i][j] == 1) {
-                    System.out.print(" * ");
+                    row.append("Q");
                 } else {
-                    System.out.print(" - ");
+                    row.append(".");
                 }
             }
-            System.out.println();
+            currentSolution.add(row.toString());
         }
+        solutions.add(currentSolution);
     }
 
     public static void main(String[] args) {
-        NQueens nQueens = new NQueens(3);
-        nQueens.solve();
-        System.out.println();
-        NQueens nQueens2 = new NQueens(5);
-        nQueens2.solve();
-
+        System.out.println("Solutions for N = 4:");
+        NQueens nQueens4 = new NQueens(4);
+        List<List<String>> result = nQueens4.solve();
+        for (List<String> solution : result) {
+            for (String row : solution) {
+                System.out.println(row);
+            }
+            System.out.println();
+        }
     }
 }
