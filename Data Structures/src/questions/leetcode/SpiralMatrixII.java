@@ -25,4 +25,3 @@ public class SpiralMatrixII {
         return result;
     }
 }
-}
