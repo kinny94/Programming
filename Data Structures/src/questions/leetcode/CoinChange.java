@@ -4,30 +4,36 @@ import java.util.Arrays;
 
 public class CoinChange {
     public int coinChange(int[] coins, int amount) {
-        int[] dp = new int[amount + 1];
-        Arrays.fill(dp, -1);
-        int minCoints = coinChange(coins, amount, dp);
-        return minCoints == Integer.MAX_VALUE ? -1 : minCoints;
+        int[][] dp = new int[coins.length][amount + 1];
+        for (int[] row : dp) {
+            Arrays.fill(row, -1);
+        }
+        int result = solve(coins, 0, amount, dp);
+        return result == Integer.MAX_VALUE ? -1 : result;
     }
 
-    private int coinChange(int[] coins, int amount, int[] dp) {
-        if (dp[amount] != -1) {
-            return dp[amount];
+    private int solve(int[] coins, int index, int currentAmount, int[][] dp) {
+        if (currentAmount == 0) {
+            return 0; // No coins needed to make amount 0
         }
 
-        if (amount == 0) {
-            return dp[amount] = 0;
+        if (index == coins.length || currentAmount < 0) {
+            return Integer.MAX_VALUE; // Invalid state
         }
 
-        int minCoins = Integer.MAX_VALUE;
-        for (int coin: coins) {
-            if (amount - coin >= 0) {
-                int result = coinChange(coins, amount - coin, dp);
-                if (result != Integer.MAX_VALUE) {
-                    minCoins = Math.min(minCoins, 1 + result);
-                }
-            }
+        if (dp[index][currentAmount] != -1) {
+            return dp[index][currentAmount];
         }
-        return dp[amount] = minCoins;
+
+
+        int include = solve(coins, index, currentAmount - coins[index], dp);
+        if (include != Integer.MAX_VALUE) {
+            include += 1;
+        }
+
+        int exclude = solve(coins, index + 1, currentAmount, dp);
+
+        dp[index][currentAmount] = Math.min(include, exclude);
+        return dp[index][currentAmount];
     }
 }
