@@ -1,7 +1,7 @@
 package questions.leetcode;
 
 import java.util.Arrays;
-import java.util.List
+import java.util.List;
 public class DeleteNodesAndReturnForst {
 
     public class TreeNode {
