@@ -8,7 +8,7 @@ import java.util.Map;
 class WordSearchII {
 
     class Node {
-        Map<Character, questions.leetcode.Node> children;
+        Map<Character, Node> children;
         boolean isString;
 
         Node() {
@@ -18,17 +18,17 @@ class WordSearchII {
     }
 
     class Trie {
-        questions.leetcode.Node root;
+        Node root;
 
         Trie() {
-            this.root = new questions.leetcode.Node();
+            this.root = new Node();
         }
 
         void insert(String word) {
-            questions.leetcode.Node node = root;
+            Node node = root;
             for (char c: word.toCharArray()) {
                 if (!node.children.containsKey(c)) {
-                    node.children.put(c, new questions.leetcode.Node());
+                    node.children.put(c, new Node());
                 }
                 node = node.children.get(c);
             }
@@ -36,8 +36,8 @@ class WordSearchII {
         }
 
         void removeCharacters(String stringToDelete) {
-            questions.leetcode.Node node = this.root;
-            List<questions.leetcode.Node> childList = new ArrayList<>();
+            Node node = this.root;
+            List<Node> childList = new ArrayList<>();
 
             for (char c: stringToDelete.toCharArray()) {
                 childList.add(node);
@@ -45,9 +45,9 @@ class WordSearchII {
             }
 
             for (int i=childList.size() - 1; i>=0; i--) {
-                questions.leetcode.Node parent = childList.get(i);
+                Node parent = childList.get(i);
                 char childChar = stringToDelete.charAt(i);
-                questions.leetcode.Node target = parent.children.get(childChar);
+                Node target = parent.children.get(childChar);
 
                 if (!target.children.isEmpty()) {
                     return;
