@@ -1,10 +1,11 @@
 package questions.leetcode;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Isomorphic {
     public boolean isIsomorphic(String string1, String string2) {
-        Map<Character, Character> mapStr1Str2 = new HashMap <Character, Character> ();
+        Map<Character, Character> mapStr1Str2 = new HashMap<Character, Character>();
         Map<Character, Character> mapStr2Str1 = new HashMap <Character, Character> ();
 
         int i=0;
