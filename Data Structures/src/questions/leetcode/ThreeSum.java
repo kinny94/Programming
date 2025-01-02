@@ -1,46 +1,43 @@
 package questions.leetcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
-        List<List<Integer>> list = new ArrayList<>();
-        Arrays.sort(nums);
-        for (int i=0; i<nums.length - 2; i++) {
+        Set<List<Integer>> result = new HashSet<>();
 
-            // Skip duplicates for the first element
-            if (i > 0 && nums[i] == nums[i - 1]) {
-                continue;
-            }
-            int low = i + 1;
-            int high = nums.length - 1;
+        if (nums.length < 3) {
+            return new ArrayList<>();
+        }
+
+        Arrays.sort(nums);
+        int low; int high;
+
+        for (int i=0; i<nums.length; i++) {
+            low = i + 1;
+            high = nums.length - 1;
 
             while (low < high) {
-                int sum = nums[i] + nums[low] + nums[high];
-                if (sum == 0) {
-                    list.add(Arrays.asList(nums[i], nums[low], nums[high]));
-                    // Skip duplicates for the second element
-                    while (low < high && nums[low] == nums[low + 1]) {
+                if (nums[i] + nums[low] + nums[high] == 0) {
+                    result.add(new ArrayList<>(Arrays.asList(nums[i], nums[low], nums[high])));
+
+                    while(low < high && nums[low] == nums[low + 1]) {
                         low++;
                     }
-                    // Skip duplicates for the third element
+
                     while (low < high && nums[high] == nums[high - 1]) {
                         high--;
                     }
 
-                    // Move both pointers
                     low++;
                     high--;
-                }
-                else if (sum < 0) {
+                } else if (nums[i] + nums[low] + nums[high] < 0) {
                     low++;
                 } else {
                     high--;
                 }
             }
         }
-        return list;
+        return new ArrayList<>(result);
     }
 }
