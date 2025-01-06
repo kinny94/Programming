@@ -15,41 +15,30 @@ public class LowestCommonAncestorOfABinaryTree {
         }
     }
 
-    private TreeNode lca;
-
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        solve(root, p, q);
-        return lca;
+        return solve(root, p, q);
     }
 
-    private boolean solve(TreeNode node, TreeNode p, TreeNode q) {
-        if (node == null) {
-            return false;
+    private TreeNode solve(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) {
+            return null;
         }
 
-        boolean mid = false;
-        boolean left = false;
-        boolean right = false;
-
-        if (p.val == node.val || node.val == q.val) {
-            mid = true;
+        if (p == root || q == root) {
+            return root;
         }
 
-        left = solve(node.left, p, q);
+        TreeNode left = solve(root.left, p, q);
+        TreeNode right = solve(root.right, p, q);
 
-        if (lca == null) {
-            right = solve(node.right, p, q);
+        if (left == null) {
+            return right;
         }
 
-        if (boolToInt(mid) + boolToInt(left) + boolToInt(right) >= 2) {
-            lca = node;
+        if (right == null) {
+            return left;
         }
 
-        return mid || left || right;
-
-    }
-
-    private int boolToInt(boolean value) {
-        return value ? 1 : 0;
+        return root;
     }
 }

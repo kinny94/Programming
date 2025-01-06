@@ -15,7 +15,7 @@ public class HappyNumber {
     private int sunmOfSquared(int n) {
         int total = 0;
         while (n > 0) {
-            int digit = n % 10;
+            int digit = n % 10  ;
             n = n/10;
             total += Math.pow(digit, 2);
         }
