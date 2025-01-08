@@ -1,9 +1,6 @@
 package questions.leetcode;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class KClosestPointsToOrigin {
     public int[][] kClosest(int[][] points, int k) {
