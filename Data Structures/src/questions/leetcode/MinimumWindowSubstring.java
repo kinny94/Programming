@@ -4,50 +4,50 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MinimumWindowSubstring {
-    public String minWindow(String s, String t) {
-        if (t.isEmpty()) {
+    public String minWindow(String s, String c) {
+        if (s == null || c == null || s.length() == 0 || c.length() == 0 || c.length() > s.length()) {
             return "";
         }
 
-        Map<Character, Integer> reqCount = new HashMap<>();
-        Map<Character, Integer> window = new HashMap<>();
-
-        for (char c: t.toCharArray()) {
-            reqCount.put(c, reqCount.getOrDefault(c, 0) + 1);
+        Map<Character, Integer> map = new HashMap<>();
+        for (char ch: c.toCharArray()) {
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
-        int requred = reqCount.size();
-        int current = 0;
-        int[] result = {-1, -1};
-        int resultLength = Integer.MAX_VALUE;
-        int left = 0;
-        for (int right = 0; right < s.length(); right++) {
-            char c = s.charAt(right);
-            if (reqCount.containsKey(c)) {
-                window.put(c, window.getOrDefault(c, 0) + 1);
-                if (window.get(c).equals(reqCount.get(c))) {
-                    current++;
+        int start = 0;
+        int matched = 0;
+        int minLength = Integer.MAX_VALUE;
+        int startIndex = 0;
+
+        for(int end = 0; end < s.length(); end++) {
+            char endChar = s.charAt(end);
+
+            // If the character is in map..decrement valye
+            if (map.containsKey(endChar)) {
+                map.put(endChar, map.get(endChar) - 1);
+                if (map.get(endChar) >= 0) {
+                    matched++;
                 }
             }
 
-            while (current == requred) {
-                if ((right - left + 1) < resultLength) {
-                    result[0] = left;
-                    result[1] = right;
-                    resultLength = right - left + 1;
+            // when all the characters are matched
+            while(matched == c.length()) {
+                if (end - start + 1 < minLength) {
+                    minLength = end - start + 1;
+                    startIndex = start;
                 }
 
-                char leftChar = s.charAt(left);
-                if (reqCount.containsKey(leftChar)) {
-                    window.put(leftChar, window.get(leftChar) - 1);
-                    if (window.get(leftChar) < reqCount.get(leftChar)) {
-                        current--;
+                char startChar = s.charAt(start);
+                if (map.containsKey(startChar)) {
+                    map.put(startChar, map.get(startChar) + 1);
+                    if (map.get(startChar) > 0) {
+                        matched--;
                     }
                 }
-                left++;
+                start++;
             }
-        }
 
-        return result[0] == -1 ? "" : s.substring(result[0], result[1] + 1);
+        }
+        return minLength == Integer.MAX_VALUE ? "" : s.substring(startIndex, startIndex + minLength);
     }
 }
