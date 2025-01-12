@@ -15,6 +15,7 @@ public class LowestCommonAncestorOfABinaryTree {
         }
     }
 
+
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         return solve(root, p, q);
     }
@@ -24,12 +25,12 @@ public class LowestCommonAncestorOfABinaryTree {
             return null;
         }
 
+        TreeNode left = solve(node.left, p, q);
+        TreeNode right = solve(node.right, p, q);
+
         if (node == p || node == q) {
             return node;
         }
-
-        TreeNode left = solve(node.left, p, q);
-        TreeNode right = solve(node.right, p, q);
 
         if (left != null && right != null) {
             return node;
