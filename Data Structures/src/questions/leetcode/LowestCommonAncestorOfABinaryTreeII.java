@@ -26,7 +26,7 @@ public class LowestCommonAncestorOfABinaryTreeII {
 
     private TreeNode solve(TreeNode node, TreeNode p, TreeNode q, Set<Integer> found) {
         if (node == null) {
-            return node;
+            return null;
         }
 
         TreeNode left = solve(node.left, p, q, found);
@@ -37,14 +37,14 @@ public class LowestCommonAncestorOfABinaryTreeII {
             return node;
         }
 
+        if (left != null && right != null) {
+            return node;
+        }
+
         if (left == null) {
             return right;
         }
 
-        if (right == null) {
-            return left;
-        }
-
-        return node;
+        return left;
     }
 }
