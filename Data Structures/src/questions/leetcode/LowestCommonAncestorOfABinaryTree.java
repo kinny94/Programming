@@ -19,26 +19,26 @@ public class LowestCommonAncestorOfABinaryTree {
         return solve(root, p, q);
     }
 
-    private TreeNode solve(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null) {
+    public TreeNode solve(TreeNode node, TreeNode p, TreeNode q)  {
+        if (node == null) {
             return null;
         }
 
-        if (p == root || q == root) {
-            return root;
+        if (node == p || node == q) {
+            return node;
         }
 
-        TreeNode left = solve(root.left, p, q);
-        TreeNode right = solve(root.right, p, q);
+        TreeNode left = solve(node.left, p, q);
+        TreeNode right = solve(node.right, p, q);
 
-        if (left == null) {
-            return right;
+        if (left != null && right != null) {
+            return node;
         }
 
-        if (right == null) {
+        if (left != null) {
             return left;
         }
 
-        return root;
+        return right;
     }
 }
