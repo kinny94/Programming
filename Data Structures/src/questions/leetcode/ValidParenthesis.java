@@ -6,19 +6,20 @@ import java.util.Stack;
 
 public class ValidParenthesis {
     public boolean isValid(String s) {
-        Stack<Character> stack = new Stack<>();
-        Map<Character, Character> mapping = new HashMap<>();
-        mapping.put(')', '(');
-        mapping.put('}', '{');
-        mapping.put(']', '[');
+        if (s == null || s.length() == 0) {
+            return false;
+        }
 
-        for (char c : s.toCharArray()) {
-            if (mapping.containsValue(c)) {
-                stack.push(c);
-            } else if (mapping.containsKey(c)) {
-                if (stack.isEmpty() || mapping.get(c) != stack.pop()) {
-                    return false;
-                }
+        Stack<Character> stack = new Stack<>();
+        for (char c: s.toCharArray()) {
+            if (c == '(') {
+                stack.push(')');
+            } else if (c == '{') {
+                stack.push('}');
+            } else if (c == '[') {
+                stack.push(']');
+            } else if (stack.isEmpty() || stack.pop() != c){
+                return false;
             }
         }
 
