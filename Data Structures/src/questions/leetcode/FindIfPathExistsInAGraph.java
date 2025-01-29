@@ -1,6 +1,6 @@
 package questions.leetcode;
 
-class FindIfPathExistsInAGraph {
+class   FindIfPathExistsInAGraph {
 
     class UnionFind {
         int[] parents;

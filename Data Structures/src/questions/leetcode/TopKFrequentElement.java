@@ -14,12 +14,12 @@ public class TopKFrequentElement {
             count.put(n, count.getOrDefault(n, 0) + 1);
         }
 
-        Queue<Integer> maxHeap = new PriorityQueue<>((n1, n2) -> count.get(n1) - count.get(n2));
+        Queue<Integer> minHeap = new PriorityQueue<>((n1, n2) -> count.get(n1) - count.get(n2));
 
         for (int n: count.keySet()) {
-            maxHeap.add(n);
-            if (maxHeap.size() > k) {
-                maxHeap.poll();
+            minHeap.add(n);
+            if (minHeap.size() > k) {
+                minHeap.poll();
             }
         }
 
