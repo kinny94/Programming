@@ -1,3 +1,4 @@
+// Single Responsibility Principle - A class should have only one responsibility
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -6,8 +7,6 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
-// Single Responsibility Principle - A class should have only one responsibility
 // If you don't follow this, you might end with a God object which is hard to maintain and test
 // Also, it violates the Open/Closed Principle
 // If you need to add a new functionality, you need to modify the existing class
