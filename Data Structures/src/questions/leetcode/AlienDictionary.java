@@ -55,4 +55,11 @@ class AlienDictionary {
         }
         return sb.toString();
     }
+
+    public static void main(String[] args) {
+        AlienDictionary alienDictionary = new AlienDictionary();
+        String[] words = {"wrt", "wrf", "er", "ett", "rftt"};
+        String result = alienDictionary.alienOrder(words);
+        System.out.println(result); // Output: "wertf"ß
+    }
 }
