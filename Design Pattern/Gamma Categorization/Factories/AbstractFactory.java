@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+// These are not used in the real world but are a good example of an abstract factory
 
 interface HotDrink {
     void consume();

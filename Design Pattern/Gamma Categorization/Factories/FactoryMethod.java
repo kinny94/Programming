@@ -1,3 +1,7 @@
+// A Factory method is a statuc method that creates objects
+// A factory method can take of object creation logic, returning an instance of the class.
+// A factory method can be external or reside inside the object as an inner class.
+// Hierarchical factory method is a factory method that creates a family of related objects.
 class Point {
     private double x, y;
 
