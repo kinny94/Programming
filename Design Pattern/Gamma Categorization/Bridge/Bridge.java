@@ -2,6 +2,7 @@
 // It prevents a 'cartesian product' complexity explosion.
 // It prevents "entity explosion" by representing things as a sum of primitive operations.
 // A mechanism that decouples an interface (hierarchy) from an implementation (hierarchy).
+// Objective is to decouple abstraction from implementation.
 
 interface Renderer {
     void renderCircle(float radius);
